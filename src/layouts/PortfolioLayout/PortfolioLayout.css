@@ -1,22 +1,110 @@
 .portfolio-layout {
   min-height: 100vh;
+  background: #05070a;
+}
+
+.portfolio-layout .ant-layout-header {
+  height: auto;
+  line-height: unset;
+  padding: 0;
+  background: transparent;
 }
 
 .portfolio-layout__header {
-  display: flex;
-  align-items: center;
-  padding-inline: 24px;
+  padding: 20px clamp(20px, 5vw, 56px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.portfolio-layout__brand {
-  color: #fff;
-  font-size: 16px;
+.portfolio-layout__header-bar {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-layout__logo {
+  color: #fff !important;
+  font-size: 18px !important;
+}
+
+.portfolio-layout__nav {
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+}
+
+.portfolio-layout__nav-btn {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-weight: 500;
+}
+
+.portfolio-layout__nav-btn:hover {
+  color: #fff !important;
+}
+
+.portfolio-layout__nav-btn--active {
+  color: #c4b5fd !important;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 2px;
+}
+
+.portfolio-layout__nav-btn--active:hover {
+  color: #ddd6fe !important;
+}
+
+.portfolio-layout__icon-btn {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.portfolio-layout__resume-btn {
+  border-radius: 999px !important;
+  font-weight: 600;
+  padding-inline: 22px !important;
 }
 
 .portfolio-layout__content {
-  padding: 24px;
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 56px) clamp(20px, 5vw, 56px) 0;
+  background: transparent;
+  overflow-x: clip;
 }
 
-.portfolio-layout__footer {
-  text-align: center;
+@media (max-width: 900px) {
+  .portfolio-layout__nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
+
+.portfolio-layout--light {
+  background: #f4f6fb !important;
+}
+
+.portfolio-layout--light .portfolio-layout__header {
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+.portfolio-layout--light .portfolio-layout__logo {
+  color: #0f172a !important;
+}
+
+.portfolio-layout--light .portfolio-layout__nav-btn {
+  color: rgba(15, 23, 42, 0.75) !important;
+}
+
+.portfolio-layout--light .portfolio-layout__nav-btn:hover {
+  color: #0f172a !important;
+}
+
+.portfolio-layout--light .portfolio-layout__nav-btn--active {
+  color: #7c3aed !important;
+}
+
+.portfolio-layout--light .portfolio-layout__icon-btn {
+  color: #0f172a !important;
+}
+
