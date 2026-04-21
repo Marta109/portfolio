@@ -1,18 +1,18 @@
-.home-page {
+.root {
   width: 100%;
   padding-bottom: 48px;
 }
 
-.home-page__hero {
+.hero {
   width: 100%;
 }
 
-.home-page__left {
+.left {
   width: 100%;
   max-width: 640px;
 }
 
-.home-page__badge {
+.badge {
   margin: 0 !important;
   padding: 6px 14px 6px 10px !important;
   border-radius: 999px !important;
@@ -25,7 +25,7 @@
   line-height: 1.2 !important;
 }
 
-.home-page__badge-dot {
+.badgeDot {
   display: inline-block;
   width: 8px;
   height: 8px;
@@ -34,7 +34,7 @@
   flex-shrink: 0;
 }
 
-.home-page__title {
+.title {
   margin: 0 !important;
   color: #fff !important;
   font-weight: 700 !important;
@@ -42,7 +42,7 @@
   line-height: 1.15 !important;
 }
 
-.home-page__title--gradient {
+.titleGradient {
   background: linear-gradient(90deg, #c4b5fd 0%, #7dd3fc 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -50,7 +50,7 @@
   padding-top: 4px;
 }
 
-.home-page__lead {
+.lead {
   margin: 0 !important;
   max-width: 520px;
   font-size: 16px !important;
@@ -58,17 +58,17 @@
   color: rgba(255, 255, 255, 0.55) !important;
 }
 
-.home-page__ctas {
+.ctas {
   margin-top: 4px;
 }
 
-.home-page__btn-primary {
+.btnPrimary {
   border-radius: 10px !important;
   font-weight: 600 !important;
   min-width: 148px;
 }
 
-.home-page__btn-cv {
+.btnCv {
   border-radius: 10px !important;
   font-weight: 600 !important;
   color: #ff8a65 !important;
@@ -76,18 +76,18 @@
   background: transparent !important;
 }
 
-.home-page__btn-cv:hover {
+.btnCv:hover {
   color: #ffb59a !important;
   border-color: #ff8a65 !important;
 }
 
-.home-page__btn-contact {
+.btnContact {
   color: #fff !important;
   font-weight: 500;
   padding-inline: 8px !important;
 }
 
-.home-page__intro-card {
+.introCard {
   margin-top: 8px !important;
   max-width: 360px;
   border-radius: 16px !important;
@@ -95,27 +95,27 @@
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-.home-page__intro-card .ant-card-body {
+.introCard :global(.ant-card-body) {
   padding: 16px 18px !important;
 }
 
-.home-page__intro-label {
+.introLabel {
   display: block;
   font-size: 10px !important;
   letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.45) !important;
 }
 
-.home-page__intro-title {
+.introTitle {
   color: #fff !important;
   font-size: 15px !important;
 }
 
-.home-page__play-btn {
+.playBtn {
   flex-shrink: 0;
 }
 
-.home-page__visual {
+.visual {
   position: relative;
   width: 100%;
   max-width: 420px;
@@ -124,7 +124,7 @@
   min-height: 420px;
 }
 
-.home-page__photo-frame {
+.photoFrame {
   position: relative;
   z-index: 1;
   border-radius: 48px;
@@ -134,13 +134,13 @@
   max-height: 520px;
 }
 
-.home-page__photo {
+.photo {
   display: block !important;
   width: 100%;
   height: 100%;
 }
 
-.home-page__photo .ant-image-img {
+.photo :global(.ant-image-img) {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -148,8 +148,7 @@
   vertical-align: top;
 }
 
-/* Orbit wrapper: drift + gentle spin (transform). Card handles hover scale separately. */
-.home-page__float-orbit {
+.floatOrbit {
   position: absolute;
   z-index: 2;
   width: 88px;
@@ -157,24 +156,24 @@
   pointer-events: none;
 }
 
-.home-page__float-orbit .home-page__float {
+.floatOrbit .float {
   pointer-events: auto;
 }
 
-.home-page__float-orbit--react {
+.floatOrbitReact {
   top: 8%;
   right: -12px;
   animation: home-badge-orbit-react 16s ease-in-out infinite;
 }
 
-.home-page__float-orbit--js {
+.floatOrbitJs {
   top: 42%;
   left: -20px;
   animation: home-badge-orbit-js 18s ease-in-out infinite;
   animation-delay: -4s;
 }
 
-.home-page__float-orbit--ts {
+.floatOrbitTs {
   bottom: 10%;
   right: 4%;
   animation: home-badge-orbit-ts 15s ease-in-out infinite;
@@ -229,7 +228,7 @@
   }
 }
 
-.home-page__float {
+.float {
   position: relative;
   width: 100%;
   text-align: center;
@@ -244,7 +243,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .home-page__float:hover {
+  .float:hover {
     transform: scale(1.08);
     z-index: 4;
     border-color: rgba(255, 255, 255, 0.22) !important;
@@ -254,37 +253,46 @@
       0 0 36px rgba(139, 92, 246, 0.35);
   }
 
-  .home-page__float--react:hover {
+  .floatReact:hover {
     box-shadow:
       0 18px 50px rgba(0, 0, 0, 0.45),
       0 0 40px rgba(97, 218, 251, 0.45);
   }
 
-  .home-page__float--js:hover {
+  .floatJs:hover {
     box-shadow:
       0 18px 50px rgba(0, 0, 0, 0.45),
       0 0 40px rgba(247, 223, 30, 0.35);
   }
 
-  .home-page__float--ts:hover {
+  .floatTs:hover {
     box-shadow:
       0 18px 50px rgba(0, 0, 0, 0.45),
       0 0 40px rgba(49, 120, 198, 0.45);
   }
 }
 
-.home-page__float .ant-card-body {
+.floatReact {
+}
+
+.floatJs {
+}
+
+.floatTs {
+}
+
+.float :global(.ant-card-body) {
   padding: 12px 8px !important;
 }
 
-.home-page__float-icon {
+.floatIcon {
   display: inline-block;
   font-size: 28px;
   color: #61dafb;
   animation: home-float-glyph-spin 36s linear infinite;
 }
 
-.home-page__float-js {
+.floatJsText {
   display: inline-block;
   font-size: 22px;
   font-weight: 800;
@@ -293,7 +301,7 @@
   animation: home-float-glyph-spin 42s linear infinite reverse;
 }
 
-.home-page__float-ts {
+.floatTsText {
   display: inline-block;
   font-size: 20px;
   font-weight: 700;
@@ -312,28 +320,28 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-page__float-orbit--react,
-  .home-page__float-orbit--js,
-  .home-page__float-orbit--ts {
+  .floatOrbitReact,
+  .floatOrbitJs,
+  .floatOrbitTs {
     animation: none !important;
   }
 
-  .home-page__float-icon,
-  .home-page__float-js,
-  .home-page__float-ts {
+  .floatIcon,
+  .floatJsText,
+  .floatTsText {
     animation: none !important;
   }
 
-  .home-page__float {
+  .float {
     transition: none;
   }
 
-  .home-page__float:hover {
+  .float:hover {
     transform: none;
   }
 }
 
-.home-page__float-label {
+.floatLabel {
   margin-top: 6px;
   font-size: 10px;
   font-weight: 700;
@@ -342,73 +350,33 @@
 }
 
 @media (max-width: 991px) {
-  .home-page__visual {
+  .visual {
     margin-top: 16px;
     max-width: 400px;
   }
 
-  .home-page__float-orbit--react {
+  .floatOrbitReact {
     right: 0;
   }
 
-  .home-page__float-orbit--js {
+  .floatOrbitJs {
     left: 0;
   }
 }
 
-.portfolio-layout--light .home-page__title {
-  color: #0f172a !important;
-}
-
-.portfolio-layout--light .home-page__lead {
-  color: rgba(15, 23, 42, 0.65) !important;
-}
-
-.portfolio-layout--light .home-page__badge {
-  background: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(15, 23, 42, 0.12) !important;
-  color: rgba(15, 23, 42, 0.88) !important;
-}
-
-.portfolio-layout--light .home-page__btn-contact {
-  color: #0f172a !important;
-}
-
-.portfolio-layout--light .home-page__intro-card {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border-color: rgba(15, 23, 42, 0.08) !important;
-}
-
-.portfolio-layout--light .home-page__intro-label {
-  color: rgba(15, 23, 42, 0.45) !important;
-}
-
-.portfolio-layout--light .home-page__intro-title {
-  color: #0f172a !important;
-}
-
-.portfolio-layout--light .home-page__float {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-}
-
-.portfolio-layout--light .home-page__float-label {
-  color: rgba(15, 23, 42, 0.85);
-}
-
 /* —— Expertise (Mastery & Toolkit) —— */
 
-.home-page__expertise {
+.expertise {
   margin-top: 72px;
   padding-top: 56px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.home-page__expertise-header {
+.expertiseHeader {
   margin-bottom: 32px;
 }
 
-.home-page__kicker {
+.kicker {
   display: block;
   margin-bottom: 8px !important;
   font-size: 11px !important;
@@ -417,7 +385,7 @@
   color: #ff8a65 !important;
 }
 
-.home-page__section-title {
+.sectionTitle {
   margin: 0 !important;
   color: #fff !important;
   font-weight: 700 !important;
@@ -425,18 +393,18 @@
   line-height: 1.2 !important;
 }
 
-.home-page__section-title-mastery {
+.sectionTitleMastery {
   display: inline-block;
   padding-bottom: 6px;
   background: linear-gradient(90deg, #a78bfa, #7dd3fc) 0 100% / 120px 2px no-repeat;
 }
 
-.home-page__section-title-rest {
+.sectionTitleRest {
   font-weight: inherit;
   color: rgba(255, 255, 255, 0.92);
 }
 
-.home-page__expertise-lead {
+.expertiseLead {
   margin: 28px 0 0 !important;
   font-size: 15px !important;
   line-height: 1.65 !important;
@@ -444,28 +412,28 @@
 }
 
 @media (min-width: 992px) {
-  .home-page__expertise-lead {
+  .expertiseLead {
     margin-top: 36px !important;
     text-align: right;
   }
 }
 
-.home-page__skill-grid {
+.skillGrid {
   width: 100%;
 }
 
-.home-page__skill-card {
+.skillCard {
   height: 100%;
   border-radius: 16px !important;
   background: rgba(255, 255, 255, 0.04) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-.home-page__skill-card .ant-card-body {
+.skillCard :global(.ant-card-body) {
   padding: 22px !important;
 }
 
-.home-page__skill-icon-shell {
+.skillIconShell {
   width: 46px;
   height: 46px;
   display: flex;
@@ -475,23 +443,23 @@
   flex-shrink: 0;
 }
 
-.home-page__skill-icon {
+.skillIcon {
   font-size: 22px;
 }
 
-.home-page__skill-level {
+.skillLevel {
   font-size: 12px !important;
   font-weight: 600 !important;
 }
 
-.home-page__skill-title {
+.skillTitle {
   margin: 0 !important;
   color: #fff !important;
   font-size: 18px !important;
   font-weight: 700 !important;
 }
 
-.home-page__skill-desc {
+.skillDesc {
   margin: 0 !important;
   flex: 1;
   font-size: 13px !important;
@@ -499,108 +467,108 @@
   color: rgba(186, 230, 253, 0.55) !important;
 }
 
-.home-page__skill-meter {
+.skillMeter {
   margin-top: 4px;
 }
 
-.home-page__skill-meter-head {
+.skillMeterHead {
   margin-bottom: 6px;
 }
 
-.home-page__skill-prof-label {
+.skillProfLabel {
   font-size: 10px !important;
   font-weight: 600 !important;
   letter-spacing: 0.1em;
   color: rgba(125, 211, 252, 0.65) !important;
 }
 
-.home-page__skill-pct {
+.skillPct {
   font-size: 12px !important;
   font-weight: 600 !important;
   color: rgba(255, 255, 255, 0.85) !important;
 }
 
-.home-page__skill-card--react .home-page__skill-icon-shell {
+.skillCardReact .skillIconShell {
   background: rgba(139, 92, 246, 0.22);
   box-shadow: 0 0 28px rgba(139, 92, 246, 0.35);
 }
 
-.home-page__skill-card--react .home-page__skill-icon {
+.skillCardReact .skillIcon {
   color: #c4b5fd;
 }
 
-.home-page__skill-card--react .home-page__skill-level {
+.skillCardReact .skillLevel {
   color: #c4b5fd !important;
 }
 
-.home-page__skill-card--ts .home-page__skill-icon-shell {
+.skillCardTs .skillIconShell {
   background: rgba(56, 189, 248, 0.18);
   box-shadow: 0 0 28px rgba(56, 189, 248, 0.3);
 }
 
-.home-page__skill-card--ts .home-page__skill-icon {
+.skillCardTs .skillIcon {
   color: #7dd3fc;
 }
 
-.home-page__skill-card--ts .home-page__skill-level {
+.skillCardTs .skillLevel {
   color: #7dd3fc !important;
 }
 
-.home-page__skill-card--tailwind .home-page__skill-icon-shell {
+.skillCardTailwind .skillIconShell {
   background: rgba(251, 146, 60, 0.2);
   box-shadow: 0 0 28px rgba(251, 146, 60, 0.32);
 }
 
-.home-page__skill-card--tailwind .home-page__skill-icon {
+.skillCardTailwind .skillIcon {
   color: #fdba74;
 }
 
-.home-page__skill-card--tailwind .home-page__skill-level {
+.skillCardTailwind .skillLevel {
   color: #fdba74 !important;
 }
 
-.home-page__skill-card--js .home-page__skill-icon-shell {
+.skillCardJs .skillIconShell {
   background: rgba(125, 211, 252, 0.16);
   box-shadow: 0 0 26px rgba(125, 211, 252, 0.28);
 }
 
-.home-page__skill-card--js .home-page__skill-icon {
+.skillCardJs .skillIcon {
   color: #bae6fd;
 }
 
-.home-page__skill-card--js .home-page__skill-level {
+.skillCardJs .skillLevel {
   color: #bae6fd !important;
 }
 
-.home-page__skill-card--html .home-page__skill-icon-shell {
+.skillCardHtml .skillIconShell {
   background: rgba(192, 132, 252, 0.2);
   box-shadow: 0 0 28px rgba(168, 85, 247, 0.32);
 }
 
-.home-page__skill-card--html .home-page__skill-icon {
+.skillCardHtml .skillIcon {
   color: #d8b4fe;
 }
 
-.home-page__skill-card--html .home-page__skill-level {
+.skillCardHtml .skillLevel {
   color: #d8b4fe !important;
 }
 
-.home-page__skill-card--design .home-page__skill-icon-shell {
+.skillCardDesign .skillIconShell {
   background: rgba(253, 212, 168, 0.14);
   box-shadow: 0 0 26px rgba(253, 186, 116, 0.28);
 }
 
-.home-page__skill-card--design .home-page__skill-icon {
+.skillCardDesign .skillIcon {
   color: #fcd9a8;
 }
 
-.home-page__skill-card--design .home-page__skill-level {
+.skillCardDesign .skillLevel {
   color: #fcd9a8 !important;
 }
 
 /* Full-bleed site footer (single scroll page) */
 
-.home-page__site-footer {
+.siteFooter {
   margin-top: 64px;
   padding: 22px clamp(20px, 5vw, 56px) 28px;
   background: #030508;
@@ -613,81 +581,124 @@
   box-sizing: border-box;
 }
 
-.home-page__site-footer-inner {
+.siteFooterInner {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.home-page__footer-copy {
+.footerCopy {
   margin: 0 !important;
   font-size: 13px !important;
   color: rgba(255, 255, 255, 0.45) !important;
 }
 
-.home-page__footer-links .ant-typography {
+.footerLinks :global(.ant-typography) {
   margin: 0 !important;
 }
 
-.home-page__footer-link {
+.footerLink {
   font-size: 13px !important;
   color: rgba(255, 255, 255, 0.5) !important;
 }
 
-.home-page__footer-link:hover {
+.footerLink:hover {
   color: #c4b5fd !important;
 }
 
-.portfolio-layout--light .home-page__expertise {
-  border-top-color: rgba(15, 23, 42, 0.08);
-}
+/* Theme overrides (driven by `data-theme` on the layout) */
 
-.portfolio-layout--light .home-page__section-title {
+:global([data-theme='light']) .title {
   color: #0f172a !important;
 }
 
-.portfolio-layout--light .home-page__section-title-rest {
+:global([data-theme='light']) .lead {
+  color: rgba(15, 23, 42, 0.65) !important;
+}
+
+:global([data-theme='light']) .badge {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: rgba(15, 23, 42, 0.88) !important;
+}
+
+:global([data-theme='light']) .btnContact {
+  color: #0f172a !important;
+}
+
+:global([data-theme='light']) .introCard {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+:global([data-theme='light']) .introLabel {
+  color: rgba(15, 23, 42, 0.45) !important;
+}
+
+:global([data-theme='light']) .introTitle {
+  color: #0f172a !important;
+}
+
+:global([data-theme='light']) .float {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+:global([data-theme='light']) .floatLabel {
+  color: rgba(15, 23, 42, 0.85);
+}
+
+:global([data-theme='light']) .expertise {
+  border-top-color: rgba(15, 23, 42, 0.08);
+}
+
+:global([data-theme='light']) .sectionTitle {
+  color: #0f172a !important;
+}
+
+:global([data-theme='light']) .sectionTitleRest {
   color: #0f172a;
 }
 
-.portfolio-layout--light .home-page__section-title-mastery {
+:global([data-theme='light']) .sectionTitleMastery {
   background: linear-gradient(90deg, #7c3aed, #0ea5e9) 0 100% / 120px 2px no-repeat;
 }
 
-.portfolio-layout--light .home-page__expertise-lead {
+:global([data-theme='light']) .expertiseLead {
   color: rgba(30, 64, 175, 0.75) !important;
 }
 
-.portfolio-layout--light .home-page__skill-card {
+:global([data-theme='light']) .skillCard {
   background: rgba(255, 255, 255, 0.85) !important;
   border-color: rgba(15, 23, 42, 0.08) !important;
 }
 
-.portfolio-layout--light .home-page__skill-title {
+:global([data-theme='light']) .skillTitle {
   color: #0f172a !important;
 }
 
-.portfolio-layout--light .home-page__skill-desc {
+:global([data-theme='light']) .skillDesc {
   color: rgba(15, 23, 42, 0.6) !important;
 }
 
-.portfolio-layout--light .home-page__skill-pct {
+:global([data-theme='light']) .skillPct {
   color: #0f172a !important;
 }
 
-.portfolio-layout--light .home-page__skill-prof-label {
+:global([data-theme='light']) .skillProfLabel {
   color: rgba(30, 64, 175, 0.55) !important;
 }
 
-.portfolio-layout--light .home-page__site-footer {
+:global([data-theme='light']) .siteFooter {
   background: #e8ecf4;
   border-top-color: rgba(15, 23, 42, 0.08);
 }
 
-.portfolio-layout--light .home-page__footer-copy,
-.portfolio-layout--light .home-page__footer-link {
+:global([data-theme='light']) .footerCopy,
+:global([data-theme='light']) .footerLink {
   color: rgba(15, 23, 42, 0.55) !important;
 }
 
-.portfolio-layout--light .home-page__footer-link:hover {
+:global([data-theme='light']) .footerLink:hover {
   color: #7c3aed !important;
 }
+

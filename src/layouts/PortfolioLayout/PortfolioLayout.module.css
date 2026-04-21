@@ -1,0 +1,110 @@
+.layout {
+  min-height: 100vh;
+  background: #05070a;
+}
+
+.layoutLight {
+  background: #f4f6fb;
+}
+
+.layout :global(.ant-layout-header) {
+  height: auto;
+  line-height: unset;
+  padding: 0;
+  background: transparent;
+}
+
+.header {
+  padding: 20px clamp(20px, 5vw, 56px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.layoutLight .header {
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+.headerBar {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  color: #fff !important;
+  font-size: 18px !important;
+}
+
+.layoutLight .logo {
+  color: #0f172a !important;
+}
+
+.nav {
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+.navBtn {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-weight: 500;
+}
+
+.layoutLight .navBtn {
+  color: rgba(15, 23, 42, 0.75) !important;
+}
+
+.navBtn:hover {
+  color: #fff !important;
+}
+
+.layoutLight .navBtn:hover {
+  color: #0f172a !important;
+}
+
+.navBtnActive {
+  color: #c4b5fd !important;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 2px;
+}
+
+.layoutLight .navBtnActive {
+  color: #7c3aed !important;
+}
+
+.navBtnActive:hover {
+  color: #ddd6fe !important;
+}
+
+.iconBtn {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.layoutLight .iconBtn {
+  color: #0f172a !important;
+}
+
+.resumeBtn {
+  border-radius: 999px !important;
+  font-weight: 600;
+  padding-inline: 22px !important;
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 56px) clamp(20px, 5vw, 56px) 0;
+  background: transparent;
+  overflow-x: clip;
+}
+

@@ -1,0 +1,9 @@
+---
+description: General coding rules
+alwaysApply: true
+---
+
+- Write code that is easy to maintain
+- Prefer simple structure over over-engineering
+- Do not create unnecessary files or abstractions
+- Keep components small, readable, and reusable

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { Button, Flex, Layout, Typography } from 'antd'
 import { SunOutlined } from '@ant-design/icons'
-import './PortfolioLayout.css'
+import styles from './PortfolioLayout.module.css'
 
 const { Header, Content } = Layout
 
@@ -24,24 +24,28 @@ const NAV_LABEL: Record<NavKey, string> = {
 
 export function PortfolioLayout({ children, isDark, onToggleTheme }: PortfolioLayoutProps) {
   const [activeNav, setActiveNav] = useState<NavKey>('skills')
+  const themeMode = isDark ? 'dark' : 'light'
+  const layoutClassName = isDark ? styles.layout : `${styles.layout} ${styles.layoutLight}`
 
   return (
-    <Layout className={isDark ? 'portfolio-layout' : 'portfolio-layout portfolio-layout--light'}>
-      <Header className="portfolio-layout__header">
-        <Flex align="center" justify="space-between" className="portfolio-layout__header-bar" wrap="wrap" gap="middle">
-          <Typography.Text strong className="portfolio-layout__logo">
+    <Layout className={layoutClassName} data-theme={themeMode}>
+      <Header className={styles.header}>
+        <Flex
+          align="center"
+          justify="space-between"
+          className={styles.headerBar}
+          wrap="wrap"
+          gap="middle"
+        >
+          <Typography.Text strong className={styles.logo}>
             Marta.dev
           </Typography.Text>
-          <Flex gap="small" className="portfolio-layout__nav" wrap="wrap">
+          <Flex gap="small" className={styles.nav} wrap="wrap">
             {NAV_KEYS.map((key) => (
               <Button
                 key={key}
                 type="text"
-                className={
-                  activeNav === key
-                    ? 'portfolio-layout__nav-btn portfolio-layout__nav-btn--active'
-                    : 'portfolio-layout__nav-btn'
-                }
+                className={activeNav === key ? `${styles.navBtn} ${styles.navBtnActive}` : styles.navBtn}
                 onClick={() => setActiveNav(key)}
               >
                 {NAV_LABEL[key]}
@@ -54,15 +58,15 @@ export function PortfolioLayout({ children, isDark, onToggleTheme }: PortfolioLa
               icon={<SunOutlined />}
               aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
               onClick={onToggleTheme}
-              className="portfolio-layout__icon-btn"
+              className={styles.iconBtn}
             />
-            <Button type="primary" className="portfolio-layout__resume-btn">
+            <Button type="primary" className={styles.resumeBtn}>
               Resume
             </Button>
           </Flex>
         </Flex>
       </Header>
-      <Content className="portfolio-layout__content">{children}</Content>
+      <Content className={styles.content}>{children}</Content>
     </Layout>
   )
 }

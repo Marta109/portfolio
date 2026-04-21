@@ -1,0 +1,25 @@
+---
+description: React frontend rules
+globs: *.tsx
+---
+
+- Use React + TypeScript + Ant Design
+- Use pnpm as package manager
+
+- No inline styles
+- Use CSS Modules for styling (Component.module.css)
+- Do not use JS/TS objects for styling
+
+- Use strict TypeScript
+- Avoid eslint-disable comments
+
+- Use PascalCase for component names
+- Use camelCase for variables and functions
+
+- Each component should be in its own folder named after the component
+
+- Split into files ONLY when needed:
+  - index.tsx (component logic)
+  - Component.module.css (if styling is non-trivial)
+  - constants file (if there are real constants)
+  - utils file (if reusable logic exists)

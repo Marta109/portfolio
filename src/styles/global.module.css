@@ -1,9 +1,10 @@
-html,
-body {
+:global(html),
+:global(body) {
   margin: 0;
   background: #05070a;
 }
 
-#root {
+:global(#root) {
   min-height: 100vh;
 }
+
