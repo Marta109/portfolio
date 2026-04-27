@@ -29,3 +29,7 @@ dist-ssr
 
 # Tests
 coverage
+
+# Env files (keep secrets out of git)
+.env
+.env.*

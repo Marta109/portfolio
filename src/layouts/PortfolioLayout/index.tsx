@@ -1,13 +1,14 @@
-import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { Button, Flex, Layout, Typography } from 'antd'
 import { SunOutlined } from '@ant-design/icons'
+import { useLocation, useNavigate } from 'react-router-dom'
 import styles from './PortfolioLayout.module.css'
 
 const { Header, Content } = Layout
 
 const NAV_KEYS = ['work', 'about', 'skills', 'contact'] as const
 type NavKey = (typeof NAV_KEYS)[number]
+type NavRouteKey = NavKey | 'ai'
 
 type PortfolioLayoutProps = {
   children: ReactNode
@@ -22,10 +23,25 @@ const NAV_LABEL: Record<NavKey, string> = {
   contact: 'Contact',
 }
 
+const NAV_ROUTE: Record<NavRouteKey, string> = {
+  work: '/work',
+  about: '/about',
+  skills: '/skills',
+  contact: '/contact',
+  ai: '/ai-playground',
+}
+
 export function PortfolioLayout({ children, isDark, onToggleTheme }: PortfolioLayoutProps) {
-  const [activeNav, setActiveNav] = useState<NavKey>('skills')
+  const navigate = useNavigate()
+  const location = useLocation()
   const themeMode = isDark ? 'dark' : 'light'
   const layoutClassName = isDark ? styles.layout : `${styles.layout} ${styles.layoutLight}`
+  const pathname = location.pathname
+
+  const isRouteActive = (key: NavRouteKey) => {
+    const route = NAV_ROUTE[key]
+    return pathname === route || pathname.startsWith(`${route}/`)
+  }
 
   return (
     <Layout className={layoutClassName} data-theme={themeMode}>
@@ -37,7 +53,16 @@ export function PortfolioLayout({ children, isDark, onToggleTheme }: PortfolioLa
           wrap="wrap"
           gap="middle"
         >
-          <Typography.Text strong className={styles.logo}>
+          <Typography.Text
+            strong
+            className={styles.logo}
+            role="button"
+            tabIndex={0}
+            onClick={() => navigate('/')}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') navigate('/')
+            }}
+          >
             Marta.dev
           </Typography.Text>
           <Flex gap="small" className={styles.nav} wrap="wrap">
@@ -45,12 +70,19 @@ export function PortfolioLayout({ children, isDark, onToggleTheme }: PortfolioLa
               <Button
                 key={key}
                 type="text"
-                className={activeNav === key ? `${styles.navBtn} ${styles.navBtnActive}` : styles.navBtn}
-                onClick={() => setActiveNav(key)}
+                className={isRouteActive(key) ? `${styles.navBtn} ${styles.navBtnActive}` : styles.navBtn}
+                onClick={() => navigate(NAV_ROUTE[key])}
               >
                 {NAV_LABEL[key]}
               </Button>
             ))}
+            <Button
+              type="text"
+              className={isRouteActive('ai') ? `${styles.navBtn} ${styles.navBtnActive}` : styles.navBtn}
+              onClick={() => navigate(NAV_ROUTE.ai)}
+            >
+              AI Playground
+            </Button>
           </Flex>
           <Flex gap="small" align="center">
             <Button
