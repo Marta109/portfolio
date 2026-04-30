@@ -6,7 +6,7 @@ import styles from './PortfolioLayout.module.css'
 
 const { Header, Content } = Layout
 
-const NAV_KEYS = ['work', 'about', 'skills', 'contact'] as const
+const NAV_KEYS = ['work', 'about', 'skills', 'contact', 'resume'] as const
 type NavKey = (typeof NAV_KEYS)[number]
 type NavRouteKey = NavKey | 'ai'
 
@@ -21,13 +21,15 @@ const NAV_LABEL: Record<NavKey, string> = {
   about: 'About',
   skills: 'Skills',
   contact: 'Contact',
+  resume: 'Resume',
 }
 
 const NAV_ROUTE: Record<NavRouteKey, string> = {
   work: '/work',
-  about: '/about',
+  about: '/',
   skills: '/skills',
   contact: '/contact',
+  resume: '/resume',
   ai: '/ai-playground',
 }
 
@@ -39,6 +41,9 @@ export function PortfolioLayout({ children, isDark, onToggleTheme }: PortfolioLa
   const pathname = location.pathname
 
   const isRouteActive = (key: NavRouteKey) => {
+    if (key === 'about') {
+      return pathname === '/'
+    }
     const route = NAV_ROUTE[key]
     return pathname === route || pathname.startsWith(`${route}/`)
   }

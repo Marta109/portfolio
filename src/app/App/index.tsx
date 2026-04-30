@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { ConfigProvider, theme } from 'antd'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { PortfolioLayout } from '@/layouts/PortfolioLayout'
-import { HomePage } from '@/pages/home/HomePage'
 import { AboutPage } from '@/pages/about/AboutPage'
+import { AboutMarkdown } from '@/pages/about-markdown/AboutMarkdown'
 import { AIPlayground } from '@/pages/ai-playground/AIPlayground'
 
 export default function App() {
@@ -39,11 +39,12 @@ export default function App() {
       <BrowserRouter>
         <PortfolioLayout isDark={isDark} onToggleTheme={() => setIsDark((v) => !v)}>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/work" element={<HomePage scrollToId="work" />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/skills" element={<HomePage scrollToId="skills" />} />
-            <Route path="/contact" element={<HomePage scrollToId="contact" />} />
+            <Route path="/" element={<AboutPage />} />
+            <Route path="/work" element={<AboutPage scrollToId="work" />} />
+            <Route path="/skills" element={<AboutPage scrollToId="skills" />} />
+            <Route path="/contact" element={<AboutPage scrollToId="contact" />} />
+            <Route path="/resume" element={<AboutMarkdown />} />
+            <Route path="/about-markdown" element={<AboutMarkdown />} />
             <Route path="/ai-playground" element={<AIPlayground />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

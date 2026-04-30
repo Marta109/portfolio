@@ -1,24 +1,38 @@
-import ReactMarkdown from 'react-markdown'
-import { Card, Typography } from 'antd'
-import savedResponsesMd from '@/content/savedResponses.md?raw'
-import styles from './AboutPage.module.css'
+import {useEffect} from "react";
+import {ExpertiseSection} from "../../home/HomePage/components/ExpertiseSection";
+import {HeroSection} from "../../home/HomePage/components/HeroSection";
+import {SiteFooter} from "../../home/HomePage/components/SiteFooter";
+import styles from "../../home/HomePage/HomePage.module.css";
 
-export function AboutPage() {
-  return (
-    <div className={styles.root}>
-      <Typography.Title level={2} className={styles.title}>
-        About
-      </Typography.Title>
-      <Typography.Paragraph className={styles.subtitle}>
-        Static markdown content from <code>src/content/savedResponses.md</code>
-      </Typography.Paragraph>
+type AboutPageProps = {
+  scrollToId?: "work" | "about" | "skills" | "contact";
+};
 
-      <Card className={styles.card}>
-        <div className={styles.markdown}>
-          <ReactMarkdown>{savedResponsesMd}</ReactMarkdown>
-        </div>
-      </Card>
-    </div>
-  )
+function scrollToSection(id: NonNullable<AboutPageProps["scrollToId"]>) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  el.scrollIntoView({behavior: "smooth", block: "start"});
 }
 
+export function AboutPage({scrollToId}: AboutPageProps) {
+  useEffect(() => {
+    if (!scrollToId) return;
+    scrollToSection(scrollToId);
+  }, [scrollToId]);
+
+  return (
+    <div className={styles.root}>
+      <div id="work" />
+      <section id="about">
+        <HeroSection />
+      </section>
+      <section id="skills">
+        <ExpertiseSection />
+      </section>
+      <div id="contact">
+        <SiteFooter />
+      </div>
+    </div>
+  );
+}
