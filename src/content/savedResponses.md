@@ -2,7 +2,7 @@ Okay, Marta, this is great information! I've organized it into a professional CV
 
 ---
 
-**Marta Hayrapetyan**
+**Marta H**
 Front-End Developer
 
 +374 91 23 17 19 | marta.hayrapetyan.a@gmail.com | GitHub: github.com/Marta109 | LinkedIn: [Your LinkedIn Profile URL, e.g., linkedin.com/in/martahayrapetyan]
@@ -11,13 +11,13 @@ Front-End Developer
 
 **Professional Summary**
 
-Aspiring and highly motivated Front-End Developer with a strong academic foundation in Computer Science and currently completing an intensive JavaScript Front-End mentorship program. Passionate about crafting modern, responsive, and user-friendly web applications. Skilled in designing intuitive interfaces, solving complex technical problems, and eager to contribute to innovative projects. A communicative and collaborative team player, committed to continuous learning and professional growth within the web development field.
+Aspiring and highly motivated Front-End Developer with a strong academic foundation in Computer Science and currently completing an intensive JavaScript Front-End mentorship program. Passionate about crafting modern, responsive, and user-friendly web applications. Skilled in designing intuitive interfaces, solving complex technical problems, and eager to contribute to innovative projects.
 
 ---
 
 **Technical Skills**
 
-- **Languages:** JavaScript, TypeScript, HTML5, CSS3
+- **Languages:** JavaScript, TypeScript, HTML5, CSS3,  C++
 - **Frameworks & Libraries:** React, Node.js (basic), Bootstrap, React Bootstrap, Material UI
 - **Build Tools:** Webpack, Vite
 - **Code Quality:** JSHint, ESLint, Prettier

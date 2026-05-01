@@ -1,7 +1,7 @@
-import ReactMarkdown from 'react-markdown'
-import { Card, Typography } from 'antd'
-import savedResponsesMd from '@/content/savedResponses.md?raw'
-import styles from './AboutMarkdown.module.css'
+import ReactMarkdown from "react-markdown";
+import {Card, Typography} from "antd";
+import savedResponsesMd from "@/content/savedResponses.md?raw";
+import styles from "./AboutMarkdown.module.css";
 
 export function AboutMarkdown() {
   return (
@@ -19,5 +19,5 @@ export function AboutMarkdown() {
         </div>
       </Card>
     </div>
-  )
+  );
 }

@@ -26,7 +26,8 @@ export function ExpertiseSection() {
         </Col>
         <Col xs={24} lg={10}>
           <Paragraph className={styles.expertiseLead}>
-            Bridging the gap between design systems and scalable frontend architectures.
+            Skilled in designing intuitive interfaces, solving complex technical problems, and eager
+            to contribute to innovative projects.
           </Paragraph>
         </Col>
       </Row>

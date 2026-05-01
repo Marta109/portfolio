@@ -1,0 +1,35 @@
+---
+alwaysApply: true
+---
+
+---
+
+description: Strict rules for synchronizing UI content with the source of truth Markdown file.
+globs: src/components/\*_/_, src/content/savedResponses.md
+
+---
+
+# Portfolio Sync Rules
+
+## Source of Truth
+
+- `src/content/savedResponses.md` is the single source of truth.
+- Do not invent, rephrase, or modify content beyond what exists in this file.
+- Use text exactly as it appears in the source.
+
+## Strict Sync for Contacts
+
+- Contacts and social links must exactly match the Markdown file.
+- **Strict Rule:** If a contact (e.g., Twitter, LinkedIn) is missing in Markdown → **permanently remove** it from the UI component.
+
+## UI & Code Protection
+
+- **Do not modify** layout, HTML structure, or CSS classes (`className`).
+- Only update text nodes and `href` attributes for links.
+- Preserve all existing React props and logic.
+
+## Safe Behavior
+
+- Do not delete unrelated components or sections.
+- Only update parts that clearly map to Markdown content based on semantic meaning.
+- If in doubt, do not change the code and ask for clarification.

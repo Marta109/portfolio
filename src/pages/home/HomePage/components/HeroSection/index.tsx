@@ -17,15 +17,18 @@ export function HeroSection() {
           </Tag>
           <div>
             <Title level={1} className={styles.title}>
-              Hi, I&apos;m Marta —
+              Hi, I&apos;m Marta H —
             </Title>
             <Title level={1} className={`${styles.title} ${styles.titleGradient}`}>
-              Frontend Developer
+              Front-End Developer
             </Title>
           </div>
           <Paragraph className={styles.lead}>
-            I build fast, accessible interfaces with JavaScript and TypeScript — balancing aesthetics,
-            performance, and maintainable code for products people enjoy using.
+            Aspiring and highly motivated Front-End Developer with a strong academic foundation in
+            Computer Science and currently completing an intensive JavaScript Front-End mentorship
+            program. Passionate about crafting modern, responsive, and user-friendly web applications.
+            Skilled in designing intuitive interfaces, solving complex technical problems, and eager
+            to contribute to innovative projects.
           </Paragraph>
           <Flex gap="middle" wrap="wrap" className={styles.ctas}>
             <Button type="primary" size="large" className={styles.btnPrimary}>

@@ -18,11 +18,8 @@ export function SiteFooter() {
           <Link href="https://github.com/Marta109" className={styles.footerLink}>
             GitHub
           </Link>
-          <Link href="#" className={styles.footerLink}>
+          <Link href="https://linkedin.com/in/martahayrapetyan" className={styles.footerLink}>
             LinkedIn
-          </Link>
-          <Link href="#" className={styles.footerLink}>
-            Twitter
           </Link>
         </Space>
       </Flex>
