@@ -19,8 +19,10 @@ globs: src/components/\*_/_, src/content/savedResponses.md
 
 ## Strict Sync for Contacts
 
-- Contacts and social links must exactly match the Markdown file.
-- **Strict Rule:** If a contact (e.g., Twitter, LinkedIn) is missing in Markdown → **permanently remove** it from the UI component.
+- Contacts and social links must match the Markdown file when present.
+- If a contact exists in Markdown → update it in UI.
+- If a contact is missing in Markdown → do NOT remove it automatically.
+- Missing items should be reported, not deleted.
 
 ## UI & Code Protection
 

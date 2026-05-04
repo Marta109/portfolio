@@ -24,9 +24,10 @@ Synchronize UI components with `src/content/savedResponses.md`.
 
 5. Do not modify layout, structure, or CSS classes (className).
 
-6. Apply strict sync for contacts:
-   - If a contact exists in Markdown → include it
-   - If a contact is missing in Markdown → remove it from UI
+6. Apply safe sync for contacts:
+   - If a contact exists in Markdown → update it
+   - If a contact is missing in Markdown → keep existing UI data unchanged
+   - Report missing items instead of removing them
 
 **Always respect rules from .cursor/rules/portfolio-sync.md**
 
