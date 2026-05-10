@@ -1,4 +1,3 @@
-/* <!-- Source: savedResponses.md --> */
 import {useEffect} from "react";
 import {ExpertiseSection} from "../../home/HomePage/components/ExpertiseSection";
 import {HeroSection} from "../../home/HomePage/components/HeroSection";
@@ -6,7 +5,7 @@ import {SiteFooter} from "../../home/HomePage/components/SiteFooter";
 import styles from "../../home/HomePage/HomePage.module.css";
 
 type AboutPageProps = {
-  scrollToId?: "about" | "skills" | "contact";
+  scrollToId?: "about" | "skills";
 };
 
 function scrollToSection(id: NonNullable<AboutPageProps["scrollToId"]>) {
@@ -30,9 +29,7 @@ export function AboutPage({scrollToId}: AboutPageProps) {
       <section id="skills">
         <ExpertiseSection />
       </section>
-      <div id="contact">
-        <SiteFooter />
-      </div>
+      <SiteFooter />
     </div>
   );
 }

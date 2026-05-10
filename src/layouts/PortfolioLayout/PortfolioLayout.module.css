@@ -98,6 +98,16 @@
   padding-inline: 22px !important;
 }
 
+.layoutLight .resumeBtn {
+  background: #4338ca !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+.layoutLight .resumeBtn:hover {
+  background: #3730a3 !important;
+}
+
 .content {
   flex: 1;
   width: 100%;
@@ -107,4 +117,3 @@
   background: transparent;
   overflow-x: clip;
 }
-

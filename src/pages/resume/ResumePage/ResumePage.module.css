@@ -1,0 +1,359 @@
+.root {
+  width: 100%;
+  padding: 32px 16px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  font-weight: 700 !important;
+  margin: 0 0 14px 0 !important;
+  background: linear-gradient(135deg, #b8c1ec 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1 !important;
+}
+
+.subtitle {
+  font-size: 1.2rem !important;
+  color: #94a3b8 !important;
+  margin: 0 !important;
+  font-weight: 400;
+}
+
+.downloadButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  color: white !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.downloadButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section {
+  background: rgba(10, 25, 47, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  border-color: rgba(102, 126, 234, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.summary {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.skillCategories {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.skillCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skillTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #b8c1ec;
+  margin: 0;
+}
+
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill {
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  color: #b8c1ec;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.skill:hover {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.educationList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.educationItem {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border-left: 3px solid #667eea;
+}
+
+.educationTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 8px 0;
+}
+
+.educationPeriod {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.certificatesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.certificateCard {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+  text-align: center;
+}
+
+.certificateIcon {
+  font-size: 24px;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.certificateCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(102, 126, 234, 0.3);
+  background: rgba(102, 126, 234, 0.07);
+}
+
+.certificateText {
+  margin: 0 0 10px 0;
+  color: #d8dff7;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.certificateLink {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(102, 126, 234, 0.15);
+  color: #eef2ff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.certificateLink:hover {
+  background: rgba(102, 126, 234, 0.28);
+  transform: translateY(-1px);
+}
+
+.certificateHint {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.language {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.contactNote {
+  font-size: 0.98rem;
+  color: #c0c9e8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.contactNote a {
+  color: #a0b4ff;
+  text-decoration: underline;
+}
+
+.contactNote a:hover {
+  color: #ffffff;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.contactItem:hover {
+  border-color: rgba(102, 126, 234, 0.2);
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.contactIcon {
+  width: 24px;
+  height: 24px;
+  color: #667eea;
+  flex-shrink: 0;
+}
+
+.contactContent {
+  flex: 1;
+}
+
+.contactLabel {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin: 0 0 4px 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contactValue {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0;
+  font-weight: 500;
+}
+
+.contactValue a {
+  color: #b8c1ec;
+  text-decoration: none;
+}
+
+.contactValue a:hover {
+  color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .root {
+    padding: 24px 16px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .title {
+    font-size: 2.5rem !important;
+  }
+
+  .section {
+    padding: 24px;
+  }
+
+  .downloadButton {
+    padding: 14px 24px !important;
+    font-size: 0.9rem !important;
+  }
+}

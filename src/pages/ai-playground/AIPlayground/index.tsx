@@ -86,10 +86,10 @@ export function AIPlayground() {
       <Flex align="flex-start" justify="space-between" gap="large" wrap="wrap">
         <div className={styles.headerCopy}>
           <Typography.Title level={2} className={styles.title}>
-            AI Playground
+            Ask About Marta
           </Typography.Title>
           <Typography.Paragraph className={styles.subtitle}>
-            Send a prompt to Gemini and render the response as markdown.
+            Ask questions about Marta's background, skills, and experience.
           </Typography.Paragraph>
         </div>
       </Flex>

@@ -86,7 +86,7 @@ export function PortfolioLayout({children, isDark, onToggleTheme}: PortfolioLayo
                 isRouteActive("ai") ? `${styles.navBtn} ${styles.navBtnActive}` : styles.navBtn
               }
               onClick={() => navigate(NAV_ROUTE.ai)}>
-              AI Playground
+              Ask About Marta
             </Button>
           </Flex>
           <Flex gap="small" align="center">
@@ -97,7 +97,7 @@ export function PortfolioLayout({children, isDark, onToggleTheme}: PortfolioLayo
               onClick={onToggleTheme}
               className={styles.iconBtn}
             />
-            <Button type="primary" className={styles.resumeBtn}>
+            <Button type="primary" className={styles.resumeBtn} onClick={() => navigate("/resume")}>
               Resume
             </Button>
           </Flex>

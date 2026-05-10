@@ -1,4 +1,5 @@
-# About Me
+// Portfolio data for AI assistant
+export const portfolioData = `# About Me
 
 **Marta Hayrapetyan**
 Front-End Developer
@@ -46,34 +47,21 @@ I am an aspiring Front-End Developer, currently completing a JavaScript Front-En
 
 ## Certificates
 
-- The Rolling Scopes School — Mentorship program, JavaScript / Front-end Course — 2024
-- AGBU — Women Coders — 2025
-- The Rolling Scopes School — Mentorship program, JavaScript / Front-end Course — 2023–2024
-- TUMO Labs — web development — 2022–2023
-- AGBU — Women Coders — 2024–2025
+- The Rolling Scopes School — Mentorship program, JavaScript / Front-end Course — 2024 — https://app.rs.school/certificate/zl52p7q1
+- AGBU — Women Coders — 2025 — https://drive.google.com/file/d/1dPPDDbBJ9ajuj8TDO_0hgzrew5ND16sV/view
 
 ---
 
 ## Experience
 
-**The Rolling Scopes School (Training Program)** | Remote
-_2023–2024_
-
-- Built web applications using HTML, CSS, JavaScript, and TypeScript without third-party libraries.
-- Worked on team projects under mentor supervision, following strict requirements.
-- Participated in code reviews and solved algorithmic tasks in JavaScript.
-- Used Git and GitHub for version control and collaboration.
-- Successfully completed the program and earned a certificate.
+I have practical experience from course projects and am ready to apply my skills in real-world development.
 
 ---
 
-## References
+## Contact Information
 
-- GitHub — https://github.com/Marta109
-
----
-
-## Contacts
-
-- Discord — @marta109_h
-- Telegram — marta.a.h
+- Email: marta.hayrapetyan.a@gmail.com
+- Telegram: +374 091-23-17-19
+- Discord: https://discord.com/
+- GitHub: https://github.com/Marta109
+- Portfolio: https://github.com/Marta109/Marta109.github.io`;

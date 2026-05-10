@@ -5,6 +5,8 @@ import {PortfolioLayout} from "@/layouts/PortfolioLayout";
 import {AboutPage} from "@/pages/about/AboutPage";
 import {AboutMarkdown} from "@/pages/about-markdown/AboutMarkdown";
 import {AIPlayground} from "@/pages/ai-playground/AIPlayground";
+import {ContactPage} from "@/pages/contact/ContactPage";
+import {ResumePage} from "@/pages/resume/ResumePage";
 import {WorksPage} from "@/pages/works/WorksPage";
 
 export default function App() {
@@ -42,8 +44,8 @@ export default function App() {
             <Route path="/" element={<AboutPage />} />
             <Route path="/work" element={<WorksPage />} />
             <Route path="/skills" element={<AboutPage scrollToId="skills" />} />
-            <Route path="/contact" element={<AboutPage scrollToId="contact" />} />
-            <Route path="/resume" element={<AboutMarkdown />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/resume" element={<ResumePage />} />
             <Route path="/about-markdown" element={<AboutMarkdown />} />
             <Route path="/ai-playground" element={<AIPlayground />} />
             <Route path="*" element={<Navigate to="/" replace />} />
