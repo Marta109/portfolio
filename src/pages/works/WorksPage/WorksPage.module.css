@@ -1,0 +1,289 @@
+.page {
+  width: 100%;
+  padding-bottom: 48px;
+}
+
+.headerRow {
+  margin-bottom: 28px;
+  gap: 16px;
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 8px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em;
+  color: #ff8a65 !important;
+}
+
+.sectionTitle {
+  margin: 0 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.85rem, 3.6vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+}
+
+.filters {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.filterBtn {
+  border-radius: 999px !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+}
+
+.filterBtn:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.filterBtnActive {
+  color: #fff !important;
+  background: rgba(139, 92, 246, 0.35) !important;
+  border-color: rgba(167, 139, 250, 0.55) !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.25);
+}
+
+.filterBtnActive:hover {
+  color: #fff !important;
+  background: rgba(139, 92, 246, 0.42) !important;
+}
+
+.cardCol {
+  display: flex;
+}
+
+.projectCard {
+  width: 100%;
+  border-radius: 16px !important;
+  background: rgba(10, 25, 47, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  overflow: hidden;
+}
+
+.projectCard:focus-within {
+  outline: 2px solid rgba(167, 139, 250, 0.5);
+  outline-offset: 2px;
+}
+
+.projectCard :global(.ant-card-body) {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.thumbWrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.35) 0%,
+    rgba(56, 189, 248, 0.2) 50%,
+    rgba(10, 25, 47, 0.9) 100%
+  );
+}
+
+.thumbSpinner {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.92);
+}
+
+.thumbSpinner :global(.ant-spin-dot-item) {
+  background-color: #a78bfa;
+}
+
+.thumbImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.thumbImgLoaded {
+  opacity: 1;
+}
+
+.hoverOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  padding: 14px 16px;
+  background: rgba(5, 10, 23, 0.92);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.thumbWrap:hover .hoverOverlay,
+.projectCard:focus-within .hoverOverlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hoverText {
+  margin: 0 !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  white-space: pre-line;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hoverOverlay {
+    transition: none;
+  }
+}
+
+.cardBody {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+}
+
+.tagRow {
+  margin: 0 !important;
+}
+
+.techTag {
+  margin: 0 !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: rgba(186, 230, 253, 0.85) !important;
+  line-height: 1.2 !important;
+}
+
+.cardTitle {
+  margin: 0 !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  word-break: break-word;
+}
+
+.actions {
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.demoBtn {
+  flex: 1;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+}
+
+.codeBtn {
+  border-radius: 10px !important;
+  width: 44px !important;
+  min-width: 44px !important;
+  padding: 0 !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  color: #fff !important;
+}
+
+.codeBtn:hover {
+  border-color: rgba(167, 139, 250, 0.6) !important;
+  color: #ddd6fe !important;
+}
+
+/* Light theme */
+:global([data-theme='light']) .kicker {
+  color: #ea580c !important;
+}
+
+:global([data-theme='light']) .sectionTitle {
+  color: #0f172a !important;
+}
+
+:global([data-theme='light']) .filterBtn {
+  color: rgba(15, 23, 42, 0.55) !important;
+}
+
+:global([data-theme='light']) .filterBtn:hover {
+  color: #0f172a !important;
+  background: rgba(15, 23, 42, 0.06) !important;
+}
+
+:global([data-theme='light']) .filterBtnActive {
+  color: #fff !important;
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.35);
+}
+
+:global([data-theme='light']) .projectCard {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+:global([data-theme='light']) .thumbSpinner {
+  background: rgba(241, 245, 249, 0.95);
+}
+
+:global([data-theme='light']) .thumbSpinner :global(.ant-spin-dot-item) {
+  background-color: #7c3aed;
+}
+
+:global([data-theme='light']) .thumbWrap {
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.2) 0%,
+    rgba(14, 165, 233, 0.15) 50%,
+    rgba(241, 245, 249, 0.95) 100%
+  );
+}
+
+:global([data-theme='light']) .hoverOverlay {
+  background: rgba(248, 250, 252, 0.96);
+}
+
+:global([data-theme='light']) .hoverText {
+  color: rgba(15, 23, 42, 0.88) !important;
+}
+
+:global([data-theme='light']) .techTag {
+  background: rgba(15, 23, 42, 0.06) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  color: rgba(30, 41, 59, 0.85) !important;
+}
+
+:global([data-theme='light']) .cardTitle {
+  color: #0f172a !important;
+}
+
+:global([data-theme='light']) .codeBtn {
+  background: rgba(15, 23, 42, 0.06) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0f172a !important;
+}

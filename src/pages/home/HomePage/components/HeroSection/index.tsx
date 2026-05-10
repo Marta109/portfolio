@@ -1,10 +1,12 @@
 import { ArrowRightOutlined, CaretRightOutlined, DeploymentUnitOutlined } from '@ant-design/icons'
 import { Button, Card, Col, Flex, Image, Row, Space, Tag, Typography } from 'antd'
+import { useNavigate } from 'react-router-dom'
 import styles from '../../HomePage.module.css'
 
 const { Title, Paragraph, Text } = Typography
 
 export function HeroSection() {
+  const navigate = useNavigate()
   return (
     <Row gutter={[40, 48]} align="middle" className={styles.hero}>
       <Col xs={24} lg={14}>
@@ -30,7 +32,12 @@ export function HeroSection() {
             eager to grow professionally. I am communicative and able to work effectively in a team.
           </Paragraph>
           <Flex gap="middle" wrap="wrap" className={styles.ctas}>
-            <Button type="primary" size="large" className={styles.btnPrimary}>
+            <Button
+              type="primary"
+              size="large"
+              className={styles.btnPrimary}
+              onClick={() => navigate('/work')}
+            >
               View Projects
             </Button>
             <Button size="large" className={styles.btnCv}>

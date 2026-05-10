@@ -6,7 +6,7 @@ import {SiteFooter} from "../../home/HomePage/components/SiteFooter";
 import styles from "../../home/HomePage/HomePage.module.css";
 
 type AboutPageProps = {
-  scrollToId?: "work" | "about" | "skills" | "contact";
+  scrollToId?: "about" | "skills" | "contact";
 };
 
 function scrollToSection(id: NonNullable<AboutPageProps["scrollToId"]>) {
@@ -24,7 +24,6 @@ export function AboutPage({scrollToId}: AboutPageProps) {
 
   return (
     <div className={styles.root}>
-      <div id="work" />
       <section id="about">
         <HeroSection />
       </section>

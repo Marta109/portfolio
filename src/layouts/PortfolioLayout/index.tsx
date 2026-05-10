@@ -17,7 +17,7 @@ type PortfolioLayoutProps = {
 };
 
 const NAV_LABEL: Record<NavKey, string> = {
-  work: "Work",
+  work: "Works",
   about: "Home",
   skills: "Skills",
   contact: "Contact",

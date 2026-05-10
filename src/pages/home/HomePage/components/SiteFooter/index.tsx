@@ -13,7 +13,7 @@ export function SiteFooter() {
         gap="middle"
         className={styles.siteFooterInner}
       >
-        <Text className={styles.footerCopy}>© 2024 Marta Hayrapetyan. All rights reserved.</Text>
+        <Text className={styles.footerCopy}>© 2026 Marta Hayrapetyan. All rights reserved.</Text>
         <Space size="large" className={styles.footerLinks}>
           <Link href="https://github.com/Marta109" className={styles.footerLink}>
             GitHub

@@ -5,6 +5,7 @@ import {PortfolioLayout} from "@/layouts/PortfolioLayout";
 import {AboutPage} from "@/pages/about/AboutPage";
 import {AboutMarkdown} from "@/pages/about-markdown/AboutMarkdown";
 import {AIPlayground} from "@/pages/ai-playground/AIPlayground";
+import {WorksPage} from "@/pages/works/WorksPage";
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
@@ -39,7 +40,7 @@ export default function App() {
         <PortfolioLayout isDark={isDark} onToggleTheme={() => setIsDark((v) => !v)}>
           <Routes>
             <Route path="/" element={<AboutPage />} />
-            <Route path="/work" element={<AboutPage scrollToId="work" />} />
+            <Route path="/work" element={<WorksPage />} />
             <Route path="/skills" element={<AboutPage scrollToId="skills" />} />
             <Route path="/contact" element={<AboutPage scrollToId="contact" />} />
             <Route path="/resume" element={<AboutMarkdown />} />
