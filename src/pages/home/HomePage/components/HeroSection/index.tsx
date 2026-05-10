@@ -12,7 +12,7 @@ export function HeroSection() {
           <Tag className={styles.badge}>
             <Flex align="center" gap="small">
               <span className={styles.badgeDot} aria-hidden />
-              AVAILABLE FOR NEW PROJECTS
+              AVAILABLE FOR PROJECTS
             </Flex>
           </Tag>
           <div>
@@ -24,11 +24,10 @@ export function HeroSection() {
             </Title>
           </div>
           <Paragraph className={styles.lead}>
-            Aspiring and highly motivated Front-End Developer with a strong academic foundation in
-            Computer Science and currently completing an intensive JavaScript Front-End mentorship
-            program. Passionate about crafting modern, responsive, and user-friendly web applications.
-            Skilled in designing intuitive interfaces, solving complex technical problems, and eager
-            to contribute to innovative projects.
+            I am an aspiring Front-End Developer, currently completing a JavaScript Front-End course at
+            The Rolling Scopes School. I know how to create modern, responsive web applications. I am
+            passionate about designing user-friendly interfaces, enjoy solving complex problems, and am
+            eager to grow professionally. I am communicative and able to work effectively in a team.
           </Paragraph>
           <Flex gap="middle" wrap="wrap" className={styles.ctas}>
             <Button type="primary" size="large" className={styles.btnPrimary}>

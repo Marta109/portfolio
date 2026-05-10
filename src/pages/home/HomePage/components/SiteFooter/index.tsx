@@ -18,6 +18,9 @@ export function SiteFooter() {
           <Link href="https://github.com/Marta109" className={styles.footerLink}>
             GitHub
           </Link>
+          <Link href="https://www.instagram.com/marta109_h/" className={styles.footerLink}>
+            Instagram
+          </Link>
           <Link href="https://linkedin.com/in/martahayrapetyan" className={styles.footerLink}>
             LinkedIn
           </Link>

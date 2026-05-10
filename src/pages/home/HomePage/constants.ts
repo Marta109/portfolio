@@ -85,11 +85,10 @@ export const SKILLS: SkillItem[] = [
     themeKey: 'design',
     title: 'Design Tools',
     level: 'Advanced',
-    description: 'Design Tools: Figma',
+    description: 'HTML / CSS / Figma\nNode.js / npm',
     percent: 85,
     strokeFrom: '#fcd9a8',
     strokeTo: '#fdba74',
     Icon: HighlightOutlined,
   },
 ]
-

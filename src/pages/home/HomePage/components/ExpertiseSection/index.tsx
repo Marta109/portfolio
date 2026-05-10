@@ -26,8 +26,7 @@ export function ExpertiseSection() {
         </Col>
         <Col xs={24} lg={10}>
           <Paragraph className={styles.expertiseLead}>
-            Skilled in designing intuitive interfaces, solving complex technical problems, and eager
-            to contribute to innovative projects.
+            Built web applications using HTML, CSS, JavaScript, and TypeScript without third-party libraries.
           </Paragraph>
         </Col>
       </Row>

@@ -6,7 +6,7 @@ import styles from "./PortfolioLayout.module.css";
 
 const {Header, Content} = Layout;
 
-const NAV_KEYS = ["work", "about", "skills", "contact", "resume"] as const;
+const NAV_KEYS = ["about", "work", "skills", "contact", "resume"] as const;
 type NavKey = (typeof NAV_KEYS)[number];
 type NavRouteKey = NavKey | "ai";
 
@@ -18,7 +18,7 @@ type PortfolioLayoutProps = {
 
 const NAV_LABEL: Record<NavKey, string> = {
   work: "Work",
-  about: "About",
+  about: "Home",
   skills: "Skills",
   contact: "Contact",
   resume: "Resume",
