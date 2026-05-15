@@ -1,5 +1,7 @@
-import {DownloadOutlined, TrophyOutlined} from "@ant-design/icons";
-import {portfolioData} from "../../../data/portfolioData";
+import {DownloadOutlined, EyeOutlined, CloseOutlined} from "@ant-design/icons";
+import {Modal} from "antd";
+import {useState} from "react";
+import {portfolioData, CERTIFICATES, type Certificate} from "../../../data/portfolioData";
 import styles from "./ResumePage.module.css";
 
 // Parse portfolio data from markdown
@@ -30,6 +32,8 @@ function parsePortfolioData(data: string) {
 
 export function ResumePage() {
   const sections = parsePortfolioData(portfolioData);
+  const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleDownload = () => {
     // Create a link to download the PDF file
@@ -39,6 +43,16 @@ export function ResumePage() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handleCertificateClick = (certificate: Certificate) => {
+    setSelectedCertificate(certificate);
+    setIsModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+    setSelectedCertificate(null);
   };
 
   const renderSkills = (skills: string[]) => {
@@ -131,20 +145,7 @@ export function ResumePage() {
               <div className={styles.educationList}>
                 {sections.education.map((edu, index) => (
                   <div key={index} className={styles.educationItem}>
-                    <h3 className={styles.educationTitle}>
-                      {edu
-                        .trim()
-                        .replace(/^[•\-*]\s*/, "")
-                        .split("—")[0]
-                        ?.trim()}
-                    </h3>
-                    <p className={styles.educationPeriod}>
-                      {edu
-                        .trim()
-                        .replace(/^[•\-*]\s*/, "")
-                        .split("—")[1]
-                        ?.trim()}
-                    </p>
+                    <p className={styles.educationTitle}>{edu.trim().replace(/^[•\-*]\s*/, "")}</p>
                   </div>
                 ))}
               </div>
@@ -170,29 +171,33 @@ export function ResumePage() {
             <section className={styles.section}>
               <h2 className={styles.sectionTitle}>Certificates</h2>
               <div className={styles.certificatesGrid}>
-                {sections.certificates.map((cert, index) => {
-                  const text = cert.trim().replace(/^[•\-*]\s*/, "");
-                  const urlMatch = text.match(/(https?:\/\/[^\s]+)/);
-                  const description = text.replace(/(https?:\/\/[^\s]+)/, "").trim();
-
-                  return (
-                    <div key={index} className={styles.certificateCard}>
-                      <TrophyOutlined className={styles.certificateIcon} />
-                      <p className={styles.certificateText}>{description}</p>
-                      {urlMatch ? (
-                        <a
-                          href={urlMatch[0]}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.certificateLink}>
-                          View
-                        </a>
-                      ) : (
-                        <span className={styles.certificateHint}>Soon</span>
-                      )}
+                {CERTIFICATES.map((certificate) => (
+                  <div
+                    key={certificate.id}
+                    className={styles.certificateCard}
+                    onClick={() => handleCertificateClick(certificate)}
+                  >
+                    <div className={styles.certificateImageWrapper}>
+                      <img
+                        src={certificate.imageUrl}
+                        alt={`${certificate.issuer} Certificate`}
+                        className={styles.certificateImage}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = "/content-is-not-available.gif";
+                        }}
+                      />
+                      <div className={styles.certificateOverlay}>
+                        <EyeOutlined className={styles.overlayIcon} />
+                        <span className={styles.overlayText}>View Certificate</span>
+                      </div>
                     </div>
-                  );
-                })}
+                    <div className={styles.certificateInfo}>
+                      <h3 className={styles.certificateTitle}>{certificate.title}</h3>
+                      <p className={styles.certificateIssuer}>{certificate.issuer} • {certificate.year}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </section>
           )}
@@ -215,6 +220,47 @@ export function ResumePage() {
           </section>
         </div>
       </div>
+
+      <Modal
+        open={isModalVisible}
+        onCancel={handleModalClose}
+        footer={null}
+        centered
+        width={800}
+        closeIcon={<CloseOutlined style={{ color: '#fff' }} />}
+        className={styles.certificateModal}
+      >
+        {selectedCertificate && (
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>
+              <h2 className={styles.modalTitle}>{selectedCertificate.title}</h2>
+              <p className={styles.modalIssuer}>{selectedCertificate.issuer} • {selectedCertificate.year}</p>
+            </div>
+            <div className={styles.modalImageWrapper}>
+              <img
+                src={selectedCertificate.imageUrl}
+                alt={`${selectedCertificate.issuer} Certificate`}
+                className={styles.modalImage}
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "/content-is-not-available.gif";
+                }}
+              />
+            </div>
+            <div className={styles.modalActions}>
+              <a
+                href={selectedCertificate.certificateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.viewOriginalLink}
+              >
+                <EyeOutlined />
+                View Original Certificate
+              </a>
+            </div>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 }

@@ -40,8 +40,10 @@ I am an aspiring Front-End Developer, currently completing a JavaScript Front-En
 
 ## Education
 
-**NPUA — Bachelor of Computer Science in Software Engineering**
-(2017 - 2021)
+- NPUA — Bachelor of Computer Science in Software Engineering (2017 - 2021)
+- The Rolling Scopes School — JavaScript Front-End Program (2023 - 2024)
+- AGBU — Women Coders Training (2024 - 2025)
+- TUMO Labs — Web Development Course (2022 - 2023)
 
 ---
 
@@ -65,3 +67,31 @@ I have practical experience from course projects and am ready to apply my skills
 - Discord: https://discord.com/
 - GitHub: https://github.com/Marta109
 - Portfolio: https://github.com/Marta109/Marta109.github.io`;
+
+export type Certificate = {
+  id: string;
+  title: string;
+  issuer: string;
+  year: string;
+  imageUrl: string;
+  certificateUrl: string;
+};
+
+export const CERTIFICATES: Certificate[] = [
+  {
+    id: "rss-certificate",
+    title: "Mentorship program, JavaScript / Front-end Course",
+    issuer: "The Rolling Scopes School",
+    year: "2024",
+    imageUrl: "/images/certificates/RSS.jpg",
+    certificateUrl: "https://app.rs.school/certificate/zl52p7q1",
+  },
+  {
+    id: "agbu-certificate",
+    title: "Women Coders",
+    issuer: "AGBU",
+    year: "2025",
+    imageUrl: "/images/certificates/AGBU.jpg",
+    certificateUrl: "https://drive.google.com/file/d/1dPPDDbBJ9ajuj8TDO_0hgzrew5ND16sV/view",
+  },
+];
