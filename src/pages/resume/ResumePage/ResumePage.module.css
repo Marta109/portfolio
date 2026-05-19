@@ -1,28 +1,36 @@
 .root {
   width: 100%;
-  padding: 32px 16px;
+  padding: 8px clamp(12px, 4vw, 20px) 32px;
   max-width: 1080px;
   margin: 0 auto;
+  min-width: 0;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 
 .headerContent {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: stretch;
+  flex-direction: column;
   gap: 20px;
 }
 
+@media (min-width: 640px) {
+  .headerContent {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
 .title {
-  font-size: clamp(2rem, 4vw, 3rem) !important;
-  font-weight: 700 !important;
-  margin: 0 0 14px 0 !important;
-  background: linear-gradient(135deg, #b8c1ec 0%, #667eea 100%);
+  font-size: clamp(2rem, 4vw, 2.85rem) !important;
+  font-weight: 800 !important;
+  margin: 0 0 10px 0 !important;
+  background: var(--gradient-title);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -30,96 +38,99 @@
 }
 
 .subtitle {
-  font-size: 1.2rem !important;
-  color: #94a3b8 !important;
+  font-size: 1.1rem !important;
+  color: var(--text-secondary) !important;
   margin: 0 !important;
   font-weight: 400;
 }
 
 .downloadButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-  border: none !important;
-  border-radius: 12px !important;
-  padding: 12px 24px !important;
-  font-size: 0.9rem !important;
-  font-weight: 600 !important;
-  color: white !important;
+  border-radius: var(--radius-pill);
+  padding: 12px 24px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  width: 100%;
+  min-height: 48px;
 }
 
-.downloadButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+@media (min-width: 640px) {
+  .downloadButton {
+    width: auto;
+    align-self: center;
+  }
 }
 
 .content {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 32px;
+  gap: 28px;
   margin-bottom: 36px;
 }
 
 .mainContent {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
 }
 
 .section {
-  background: rgba(10, 25, 47, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 28px;
-  transition: all 0.3s ease;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .section:hover {
-  border-color: rgba(102, 126, 234, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-hover);
 }
 
 .sectionTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 0 0 24px 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 20px 0;
   padding-bottom: 12px;
-  border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+  border-bottom: 1px solid var(--border-subtle);
   position: relative;
 }
 
 .sectionTitle::after {
   content: "";
   position: absolute;
-  bottom: -2px;
+  bottom: -1px;
   left: 0;
-  width: 60px;
+  width: 48px;
   height: 2px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: var(--gradient-accent-line);
+  border-radius: var(--radius-pill);
 }
 
 .summary {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
   margin: 0;
 }
 
 .skillCategories {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .skillCategory {
@@ -129,9 +140,9 @@
 }
 
 .skillTitle {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #b8c1ec;
+  color: var(--accent-muted);
   margin: 0;
 }
 
@@ -142,71 +153,90 @@
 }
 
 .skill {
-  background: rgba(102, 126, 234, 0.1);
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  color: #b8c1ec;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--border-accent);
+  color: var(--text-primary);
   padding: 6px 12px;
-  border-radius: 20px;
+  border-radius: var(--radius-pill);
   font-size: 0.85rem;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .skill:hover {
-  background: rgba(102, 126, 234, 0.2);
-  border-color: rgba(102, 126, 234, 0.4);
+  background: rgba(99, 102, 241, 0.16);
+  border-color: var(--accent);
 }
 
 .educationList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .educationItem {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  border-left: 3px solid #667eea;
+  padding: 18px;
+  background: var(--bg-input);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent);
 }
 
 .educationTitle {
   font-size: 1rem;
   font-weight: 500;
-  color: #d8dff7;
-  margin: 0 0 12px 0;
+  color: var(--text-primary);
+  margin: 0 0 10px 0;
   line-height: 1.5;
 }
 
 .educationPeriod {
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: var(--text-muted);
   margin: 0;
 }
 
 .certificatesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 18px;
 }
 
 .certificateCard {
   position: relative;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-input);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
-  height: 280px;
+  transition:
+    transform var(--transition-smooth),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  min-height: 240px;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
 
 .certificateCard:hover {
-  transform: translateY(-4px);
-  border-color: rgba(102, 126, 234, 0.3);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .certificateCard:hover {
+    transform: translateY(-3px);
+  }
+
+  .certificateCard:hover .certificateImage {
+    transform: scale(1.04);
+  }
+
+  .certificateCard:hover .certificateOverlay {
+    opacity: 1;
+  }
 }
 
 .certificateImageWrapper {
@@ -220,34 +250,23 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.certificateCard:hover .certificateImage {
-  transform: scale(1.05);
+  transition: transform var(--transition-smooth);
 }
 
 .certificateOverlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  inset: 0;
+  background: rgba(7, 10, 18, 0.75);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.certificateCard:hover .certificateOverlay {
-  opacity: 1;
+  transition: opacity var(--transition-fast);
 }
 
 .overlayIcon {
-  font-size: 32px;
+  font-size: 28px;
   color: #fff;
   margin-bottom: 8px;
 }
@@ -269,26 +288,24 @@
 .certificateTitle {
   font-size: 1rem;
   font-weight: 600;
-  color: #d8dff7;
+  color: var(--text-primary);
   margin: 0 0 8px 0;
   line-height: 1.4;
 }
 
 .certificateIssuer {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: var(--text-muted);
   margin: 0;
-  font-weight: 400;
 }
 
-/* Modal Styles */
-.certificateModal .ant-modal-content {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.certificateModal :global(.ant-modal-content) {
+  background: var(--bg-card) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border-subtle) !important;
 }
 
-.certificateModal .ant-modal-body {
+.certificateModal :global(.ant-modal-body) {
   padding: 0;
 }
 
@@ -302,11 +319,10 @@
 }
 
 .modalTitle {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #d8dff7;
   margin: 0 0 8px 0;
-  background: linear-gradient(135deg, #b8c1ec 0%, #667eea 100%);
+  background: var(--gradient-title);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -314,7 +330,7 @@
 
 .modalIssuer {
   font-size: 1rem;
-  color: #94a3b8;
+  color: var(--text-muted);
   margin: 0;
   font-weight: 500;
 }
@@ -323,16 +339,15 @@
   display: flex;
   justify-content: center;
   margin-bottom: 24px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-subtle);
 }
 
 .modalImage {
   max-width: 100%;
   max-height: 500px;
   object-fit: contain;
-  border-radius: 8px;
 }
 
 .modalActions {
@@ -345,79 +360,83 @@
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: var(--radius-pill);
+  background: var(--gradient-btn);
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-btn);
 }
 
 .viewOriginalLink:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-hover);
 }
 
 .languages {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .language {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
+  background: var(--gradient-btn);
+  color: #fff;
   padding: 8px 16px;
-  border-radius: 25px;
+  border-radius: var(--radius-pill);
   font-size: 0.9rem;
   font-weight: 500;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
 .contactNote {
   font-size: 0.98rem;
-  color: #c0c9e8;
+  color: var(--text-secondary);
   line-height: 1.7;
   margin: 0;
 }
 
 .contactNote a {
-  color: #a0b4ff;
+  color: var(--accent-soft);
   text-decoration: underline;
 }
 
 .contactNote a:hover {
-  color: #ffffff;
+  color: var(--accent);
 }
 
 .contactList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .contactItem {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px;
+  background: var(--bg-input);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast);
 }
 
 .contactItem:hover {
-  border-color: rgba(102, 126, 234, 0.2);
-  background: rgba(102, 126, 234, 0.05);
+  border-color: var(--border-accent);
+  background: rgba(99, 102, 241, 0.06);
 }
 
 .contactIcon {
   width: 24px;
   height: 24px;
-  color: #667eea;
+  color: var(--accent);
   flex-shrink: 0;
 }
 
@@ -426,50 +445,51 @@
 }
 
 .contactLabel {
-  font-size: 0.85rem;
-  color: #94a3b8;
+  font-size: 0.8rem;
+  color: var(--text-muted);
   margin: 0 0 4px 0;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.06em;
 }
 
 .contactValue {
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0;
   font-weight: 500;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .contactValue a {
-  color: #b8c1ec;
+  color: var(--accent-muted);
   text-decoration: none;
 }
 
 .contactValue a:hover {
-  color: #667eea;
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
-  .root {
-    padding: 24px 16px;
-  }
-
   .content {
     grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .title {
-    font-size: 2.5rem !important;
+    gap: 24px;
   }
 
   .section {
-    padding: 24px;
+    padding: clamp(18px, 4vw, 22px);
   }
 
-  .downloadButton {
-    padding: 14px 24px !important;
-    font-size: 0.9rem !important;
+  .summary {
+    font-size: clamp(0.95rem, 3.2vw, 1.05rem);
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.15rem, 4vw, 1.35rem);
+  }
+
+  .modalImage {
+    max-height: min(50vh, 420px);
   }
 }

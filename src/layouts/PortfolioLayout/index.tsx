@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import {Button, Flex, Layout, Typography} from "antd";
-import {SunOutlined} from "@ant-design/icons";
+import {MoonOutlined, SunOutlined} from "@ant-design/icons";
 import {useLocation, useNavigate} from "react-router-dom";
 import styles from "./PortfolioLayout.module.css";
 
@@ -17,7 +17,7 @@ type PortfolioLayoutProps = {
 };
 
 const NAV_LABEL: Record<NavKey, string> = {
-  work: "Works",
+  work: "Projects",
   about: "Home",
   skills: "Skills",
   contact: "Contact",
@@ -25,7 +25,7 @@ const NAV_LABEL: Record<NavKey, string> = {
 };
 
 const NAV_ROUTE: Record<NavRouteKey, string> = {
-  work: "/work",
+  work: "/projects",
   about: "/",
   skills: "/skills",
   contact: "/contact",
@@ -37,7 +37,7 @@ export function PortfolioLayout({children, isDark, onToggleTheme}: PortfolioLayo
   const navigate = useNavigate();
   const location = useLocation();
   const themeMode = isDark ? "dark" : "light";
-  const layoutClassName = isDark ? styles.layout : `${styles.layout} ${styles.layoutLight}`;
+  const layoutClassName = styles.layout;
   const pathname = location.pathname;
 
   const isRouteActive = (key: NavRouteKey) => {
@@ -66,9 +66,9 @@ export function PortfolioLayout({children, isDark, onToggleTheme}: PortfolioLayo
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") navigate("/");
             }}>
-            Marta.dev
+            Marta Dev
           </Typography.Text>
-          <Flex gap="small" className={styles.nav} wrap="wrap">
+          <Flex gap="small" className={styles.nav} wrap={false}>
             {NAV_KEYS.map((key) => (
               <Button
                 key={key}
@@ -86,17 +86,20 @@ export function PortfolioLayout({children, isDark, onToggleTheme}: PortfolioLayo
                 isRouteActive("ai") ? `${styles.navBtn} ${styles.navBtnActive}` : styles.navBtn
               }
               onClick={() => navigate(NAV_ROUTE.ai)}>
-              Ask About Marta
+              <span className={styles.navAiLabelFull}>Ask About Marta</span>
+              <span className={styles.navAiLabelShort}>Ask Marta</span>
             </Button>
           </Flex>
-          <Flex gap="small" align="center">
+          <Flex gap="small" align="center" className={styles.headerActions}>
             <Button
               type="text"
-              icon={<SunOutlined />}
               aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
               onClick={onToggleTheme}
-              className={styles.iconBtn}
-            />
+              className={`${styles.themeToggle} ${isDark ? styles.themeToggleDark : styles.themeToggleLight}`}>
+              <span className={styles.themeToggleIcon} aria-hidden>
+                {isDark ? <SunOutlined /> : <MoonOutlined />}
+              </span>
+            </Button>
             <Button type="primary" className={styles.resumeBtn} onClick={() => navigate("/resume")}>
               Resume
             </Button>

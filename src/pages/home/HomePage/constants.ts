@@ -1,94 +1,29 @@
-import {
-  BgColorsOutlined,
-  BlockOutlined,
-  ConsoleSqlOutlined,
-  HighlightOutlined,
-  LayoutOutlined,
-  VerifiedOutlined,
-} from '@ant-design/icons'
-import type { ComponentType } from 'react'
-
-export type SkillThemeKey = 'react' | 'ts' | 'tailwind' | 'js' | 'html' | 'design'
-
-export type SkillIcon = ComponentType<{ className?: string }>
-
-export type SkillItem = {
+export type TechItem = {
   key: string
-  themeKey: SkillThemeKey
-  title: string
-  level: string
-  description: string
-  percent: number
-  strokeFrom: string
-  strokeTo: string
-  Icon: SkillIcon
+  name: string
+  slug: string
+  color: string
 }
 
-export const SKILLS: SkillItem[] = [
-  {
-    key: 'react',
-    themeKey: 'react',
-    title: 'Frameworks & Libraries',
-    level: 'Advanced',
-    description: 'Frameworks & Libraries: React, Node.js (basic), Bootstrap, React Bootstrap, Material UI',
-    percent: 95,
-    strokeFrom: '#8b5cf6',
-    strokeTo: '#6366f1',
-    Icon: BlockOutlined,
-  },
-  {
-    key: 'typescript',
-    themeKey: 'ts',
-    title: 'Languages',
-    level: 'Advanced',
-    description: 'Languages: JavaScript, TypeScript, HTML5, CSS3,  C++',
-    percent: 90,
-    strokeFrom: '#38bdf8',
-    strokeTo: '#14b8a6',
-    Icon: VerifiedOutlined,
-  },
-  {
-    key: 'tailwind',
-    themeKey: 'tailwind',
-    title: 'Build Tools',
-    level: 'Advanced',
-    description: 'Build Tools: Webpack, Vite',
-    percent: 98,
-    strokeFrom: '#fb923c',
-    strokeTo: '#f97316',
-    Icon: BgColorsOutlined,
-  },
-  {
-    key: 'vanilla',
-    themeKey: 'js',
-    title: 'Code Quality',
-    level: 'Core',
-    description: 'Code Quality: JSHint, ESLint, Prettier',
-    percent: 95,
-    strokeFrom: '#7dd3fc',
-    strokeTo: '#38bdf8',
-    Icon: ConsoleSqlOutlined,
-  },
-  {
-    key: 'htmlcss',
-    themeKey: 'html',
-    title: 'Version Control',
-    level: 'Expert',
-    description: 'Version Control: Git, GitHub',
-    percent: 98,
-    strokeFrom: '#c084fc',
-    strokeTo: '#a855f7',
-    Icon: LayoutOutlined,
-  },
-  {
-    key: 'design',
-    themeKey: 'design',
-    title: 'Design Tools',
-    level: 'Advanced',
-    description: 'HTML / CSS / Figma\nNode.js / npm',
-    percent: 85,
-    strokeFrom: '#fcd9a8',
-    strokeTo: '#fdba74',
-    Icon: HighlightOutlined,
-  },
+export const TECH_STACK: TechItem[] = [
+  {key: 'react', name: 'React', slug: 'react', color: '#61DAFB'},
+  {key: 'typescript', name: 'TypeScript', slug: 'typescript', color: '#3178C6'},
+  {key: 'javascript', name: 'JavaScript', slug: 'javascript', color: '#F7DF1E'},
+  {key: 'html5', name: 'HTML5', slug: 'html5', color: '#E34F26'},
+  {key: 'css3', name: 'CSS3', slug: 'css', color: '#1572B6'},
+  {key: 'nodejs', name: 'Node.js', slug: 'nodedotjs', color: '#339933'},
+  {key: 'vite', name: 'Vite', slug: 'vite', color: '#646CFF'},
+  {key: 'webpack', name: 'Webpack', slug: 'webpack', color: '#8DD6F9'},
+  {key: 'git', name: 'Git', slug: 'git', color: '#F05032'},
+  {key: 'github', name: 'GitHub', slug: 'github', color: '#ffffff'},
+  {key: 'eslint', name: 'ESLint', slug: 'eslint', color: '#4B32C3'},
+  {key: 'prettier', name: 'Prettier', slug: 'prettier', color: '#F7B93E'},
+  {key: 'bootstrap', name: 'Bootstrap', slug: 'bootstrap', color: '#7952B3'},
+  {key: 'mui', name: 'Material UI', slug: 'mui', color: '#007FFF'},
+  {key: 'antd', name: 'Ant Design', slug: 'antdesign', color: '#0170FE'},
+  {key: 'figma', name: 'Figma', slug: 'figma', color: '#F24E1E'},
 ]
+
+export function techIconUrl(slug: string, color: string) {
+  return `https://cdn.simpleicons.org/${slug}/${color.replace('#', '')}`
+}

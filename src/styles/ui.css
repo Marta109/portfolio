@@ -1,0 +1,213 @@
+/* —— Shared section typography —— */
+.sectionKicker {
+  display: block;
+  margin-bottom: 10px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kicker) !important;
+}
+
+.sectionPageTitle {
+  margin: 0 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em;
+  font-size: clamp(2.1rem, 4vw, 2.85rem) !important;
+  line-height: 1.08 !important;
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionPageTitleCentered::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin: 18px auto 0;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-accent-line);
+}
+
+.sectionLead {
+  margin: 18px auto 0 !important;
+  font-size: 1.02rem !important;
+  line-height: 1.75 !important;
+  color: var(--text-secondary) !important;
+}
+
+.surfaceCard {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-smooth);
+}
+
+.surfaceCard:hover {
+  border-color: var(--border-accent) !important;
+  box-shadow: var(--shadow-hover);
+  background: var(--bg-card-hover) !important;
+}
+
+/* —— Global Ant Design harmonization —— */
+[data-theme] .ant-btn {
+  font-weight: 600;
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast) !important;
+}
+
+[data-theme] .ant-btn-primary:not(:disabled) {
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  background: var(--gradient-btn) !important;
+  box-shadow: var(--shadow-btn) !important;
+  color: var(--text-inverse) !important;
+}
+
+[data-theme] .ant-btn-primary:not(:disabled):hover {
+  transform: translateY(-2px);
+  background: var(--gradient-btn-hover) !important;
+  box-shadow: var(--shadow-hover) !important;
+  color: var(--text-inverse) !important;
+}
+
+[data-theme] .ant-btn-default:not(:disabled) {
+  border-radius: var(--radius-pill) !important;
+  border: 1px solid var(--border-default) !important;
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme] .ant-btn-default:not(:disabled):hover {
+  transform: translateY(-2px);
+  border-color: var(--border-accent) !important;
+  color: var(--accent-soft) !important;
+  background: var(--bg-card-hover) !important;
+  box-shadow: var(--shadow-hover);
+}
+
+[data-theme] .ant-btn-text:not(:disabled):hover {
+  background: var(--nav-hover-bg) !important;
+}
+
+[data-theme] .portfolioBtnSecondary {
+  border-radius: var(--radius-pill) !important;
+  border: 1px solid var(--border-default) !important;
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  height: 44px !important;
+  padding: 0 24px !important;
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme] .portfolioBtnSecondary:hover {
+  transform: translateY(-2px) !important;
+  border-color: var(--border-accent) !important;
+  color: var(--accent-soft) !important;
+  background: var(--bg-card-hover) !important;
+  box-shadow: var(--shadow-hover) !important;
+}
+
+[data-theme] .portfolioBtnGhost {
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+}
+
+[data-theme] .portfolioBtnGhost:hover {
+  color: var(--accent-soft) !important;
+}
+
+/* Premium CTA for non-Ant buttons/links */
+[data-theme] .portfolioCta {
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-btn);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-btn);
+  font-weight: 700;
+  height: 46px;
+  padding: 0 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-fast),
+    filter var(--transition-fast),
+    background var(--transition-fast);
+}
+
+[data-theme] .portfolioCta:hover {
+  transform: translateY(-2px);
+  background: var(--gradient-btn-hover);
+  box-shadow: var(--shadow-hover);
+  filter: brightness(1.03);
+}
+
+[data-theme] .portfolioCta:active {
+  transform: translateY(-1px);
+}
+
+/* —— Form controls (global) —— */
+[data-theme] .ant-input,
+[data-theme] .ant-input-affix-wrapper,
+[data-theme] textarea.ant-input {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--border-default) !important;
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-inset);
+}
+
+[data-theme] .ant-input::placeholder,
+[data-theme] textarea.ant-input::placeholder {
+  color: var(--text-placeholder) !important;
+}
+
+[data-theme] .ant-input:hover,
+[data-theme] .ant-input-affix-wrapper:hover,
+[data-theme] textarea.ant-input:hover {
+  border-color: var(--border-strong) !important;
+  background: var(--bg-input-hover) !important;
+}
+
+[data-theme] .ant-input:focus,
+[data-theme] .ant-input-affix-wrapper-focused,
+[data-theme] textarea.ant-input:focus {
+  border-color: var(--accent) !important;
+  background: var(--bg-input-hover) !important;
+  box-shadow: var(--focus-ring) !important;
+}
+
+[data-theme] .ant-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card);
+  color: var(--text-primary);
+}
+
+[data-theme] .ant-typography {
+  color: inherit;
+}
+
+[data-theme] .ant-tag {
+  border-color: var(--border-default);
+  background: var(--bg-input);
+  color: var(--text-primary);
+}

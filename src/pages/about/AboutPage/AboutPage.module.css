@@ -6,6 +6,10 @@
 .title {
   margin: 0 !important;
   font-weight: 750 !important;
+  background: linear-gradient(135deg, #b8c1ec 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subtitle {
@@ -40,7 +44,7 @@
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-:global([data-theme='dark']) .markdown :global(hr) {
+:global([data-theme="dark"]) .markdown :global(hr) {
   border-top-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -50,7 +54,7 @@
   border-radius: 8px;
 }
 
-:global([data-theme='dark']) .markdown :global(code) {
+:global([data-theme="dark"]) .markdown :global(code) {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -62,8 +66,7 @@
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-:global([data-theme='dark']) .markdown :global(pre) {
+:global([data-theme="dark"]) .markdown :global(pre) {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.1);
 }
-

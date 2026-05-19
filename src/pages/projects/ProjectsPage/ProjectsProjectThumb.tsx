@@ -1,7 +1,7 @@
 import {Spin, Typography} from "antd";
 import {useState} from "react";
 import type {WorkProject} from "@/data/portfolioProjects";
-import styles from "./WorksPage.module.css";
+import styles from "./ProjectsPage.module.css";
 
 const {Paragraph} = Typography;
 

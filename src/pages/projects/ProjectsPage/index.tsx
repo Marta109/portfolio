@@ -1,17 +1,13 @@
 import {CodeOutlined} from "@ant-design/icons";
 import {Button, Card, Col, Empty, Flex, Row, Space, Tag, Typography} from "antd";
 import {useMemo, useState} from "react";
-import {
-  WORK_FILTER_ORDER,
-  WORK_PROJECTS,
-  type WorkFilterKey,
-} from "@/pages/works/constants";
-import {WorkProjectThumb} from "./WorkProjectThumb";
-import styles from "./WorksPage.module.css";
+import {WORK_FILTER_ORDER, WORK_PROJECTS, type WorkFilterKey} from "@/pages/projects/constants";
+import {WorkProjectThumb} from "./ProjectsProjectThumb";
+import styles from "./ProjectsPage.module.css";
 
 const {Text, Title} = Typography;
 
-export function WorksPage() {
+export function ProjectsPage() {
   const [filter, setFilter] = useState<WorkFilterKey>("all");
 
   const visible = useMemo(() => {
@@ -36,7 +32,9 @@ export function WorksPage() {
                 type="text"
                 size="middle"
                 className={
-                  filter === key ? `${styles.filterBtn} ${styles.filterBtnActive}` : styles.filterBtn
+                  filter === key
+                    ? `${styles.filterBtn} ${styles.filterBtnActive}`
+                    : styles.filterBtn
                 }
                 onClick={() => setFilter(key)}>
                 {label}
@@ -47,15 +45,23 @@ export function WorksPage() {
       </Row>
 
       {visible.length === 0 ? (
-        <Empty
-          description="No projects in this category yet."
-          styles={{root: {marginTop: 48}}}
-        />
+        <Empty description="No projects in this category yet." styles={{root: {marginTop: 48}}} />
       ) : (
         <Row gutter={[24, 24]}>
           {visible.map((project) => (
             <Col key={project.id} xs={24} md={12} lg={8} className={styles.cardCol}>
-              <Card bordered={false} className={styles.projectCard} tabIndex={0}>
+              <Card
+                bordered={false}
+                className={styles.projectCard}
+                tabIndex={0}
+                role="button"
+                onClick={() => window.open(project.liveUrl, "_blank", "noopener,noreferrer")}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    window.open(project.liveUrl, "_blank", "noopener,noreferrer");
+                  }
+                }}>
                 <WorkProjectThumb project={project} />
                 <div className={styles.cardBody}>
                   <Space size={[8, 8]} wrap className={styles.tagRow}>
@@ -68,14 +74,15 @@ export function WorksPage() {
                   <Title level={4} className={styles.cardTitle}>
                     {project.title}
                   </Title>
-                  <Flex gap="small" className={styles.actions} wrap="nowrap">
+                  <Flex gap="small" className={styles.actions} wrap="wrap">
                     <Button
                       type="primary"
                       size="large"
                       className={styles.demoBtn}
                       href={project.liveUrl}
                       target="_blank"
-                      rel="noopener noreferrer">
+                      rel="noopener noreferrer"
+                      onClick={(event) => event.stopPropagation()}>
                       Live Demo
                     </Button>
                     <Button
@@ -84,6 +91,8 @@ export function WorksPage() {
                       href={project.repoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                      title="Open on GitHub"
                       icon={<CodeOutlined />}
                       aria-label="View source code"
                     />

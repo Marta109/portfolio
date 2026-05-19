@@ -63,7 +63,8 @@ export function ResumePage() {
           skill.toLowerCase().includes("typescript") ||
           skill.toLowerCase().includes("react") ||
           skill.toLowerCase().includes("html") ||
-          skill.toLowerCase().includes("css"),
+          skill.toLowerCase().includes("css") ||
+          skill.toLowerCase().includes("antd"),
       ),
       "Tools & Technologies": skills.filter(
         (skill) =>
@@ -72,12 +73,6 @@ export function ResumePage() {
           skill.toLowerCase().includes("vite") ||
           skill.toLowerCase().includes("node") ||
           skill.toLowerCase().includes("npm"),
-      ),
-      "Libraries & Frameworks": skills.filter(
-        (skill) =>
-          skill.toLowerCase().includes("bootstrap") ||
-          skill.toLowerCase().includes("material ui") ||
-          skill.toLowerCase().includes("antd"),
       ),
       "Development Tools": skills.filter(
         (skill) =>
@@ -114,7 +109,9 @@ export function ResumePage() {
             <h1 className={styles.title}>Resume</h1>
             <p className={styles.subtitle}>Front-End Developer</p>
           </div>
-          <button className={styles.downloadButton} onClick={handleDownload}>
+          <button
+            className={`${styles.downloadButton} portfolioCta`}
+            onClick={handleDownload}>
             <DownloadOutlined />
             Download PDF Resume
           </button>
@@ -175,8 +172,7 @@ export function ResumePage() {
                   <div
                     key={certificate.id}
                     className={styles.certificateCard}
-                    onClick={() => handleCertificateClick(certificate)}
-                  >
+                    onClick={() => handleCertificateClick(certificate)}>
                     <div className={styles.certificateImageWrapper}>
                       <img
                         src={certificate.imageUrl}
@@ -194,7 +190,9 @@ export function ResumePage() {
                     </div>
                     <div className={styles.certificateInfo}>
                       <h3 className={styles.certificateTitle}>{certificate.title}</h3>
-                      <p className={styles.certificateIssuer}>{certificate.issuer} • {certificate.year}</p>
+                      <p className={styles.certificateIssuer}>
+                        {certificate.issuer} • {certificate.year}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -226,15 +224,17 @@ export function ResumePage() {
         onCancel={handleModalClose}
         footer={null}
         centered
-        width={800}
-        closeIcon={<CloseOutlined style={{ color: '#fff' }} />}
-        className={styles.certificateModal}
-      >
+        width="100%"
+        style={{maxWidth: 880, top: 24, paddingBottom: 16}}
+        closeIcon={<CloseOutlined style={{color: "var(--text-primary)"}} />}
+        className={styles.certificateModal}>
         {selectedCertificate && (
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
               <h2 className={styles.modalTitle}>{selectedCertificate.title}</h2>
-              <p className={styles.modalIssuer}>{selectedCertificate.issuer} • {selectedCertificate.year}</p>
+              <p className={styles.modalIssuer}>
+                {selectedCertificate.issuer} • {selectedCertificate.year}
+              </p>
             </div>
             <div className={styles.modalImageWrapper}>
               <img
@@ -252,8 +252,7 @@ export function ResumePage() {
                 href={selectedCertificate.certificateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.viewOriginalLink}
-              >
+                className={styles.viewOriginalLink}>
                 <EyeOutlined />
                 View Original Certificate
               </a>

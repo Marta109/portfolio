@@ -1,76 +1,33 @@
-import { Card, Col, Flex, Progress, Row, Typography } from 'antd'
-import { SKILLS } from '../../constants'
-import styles from '../../HomePage.module.css'
+import {Typography} from 'antd'
+import {TECH_STACK} from '../../constants'
+import styles from './ExpertiseSection.module.css'
+import {TechTile} from './TechTile'
 
-const { Title, Paragraph, Text } = Typography
-
-const THEME_CLASS: Record<(typeof SKILLS)[number]['themeKey'], string> = {
-  react: styles.skillCardReact,
-  ts: styles.skillCardTs,
-  tailwind: styles.skillCardTailwind,
-  js: styles.skillCardJs,
-  html: styles.skillCardHtml,
-  design: styles.skillCardDesign,
-}
+const {Title, Paragraph, Text} = Typography
 
 export function ExpertiseSection() {
   return (
-    <section className={styles.expertise} aria-labelledby="expertise-heading">
-      <Row gutter={[32, 24]} className={styles.expertiseHeader} align="top">
-        <Col xs={24} lg={14}>
+    <section className={styles.section} aria-labelledby="expertise-heading">
+      <div className={styles.inner}>
+        <header className={styles.header}>
           <Text className={styles.kicker}>EXPERTISE</Text>
-          <Title level={2} id="expertise-heading" className={styles.sectionTitle}>
-            <span className={styles.sectionTitleMastery}>Mastery</span>
-            <span className={styles.sectionTitleRest}> & Toolkit</span>
+          <Title level={2} id="expertise-heading" className={styles.pageTitle}>
+            Mastery & Toolkit
           </Title>
-        </Col>
-        <Col xs={24} lg={10}>
-          <Paragraph className={styles.expertiseLead}>
-            Built web applications using HTML, CSS, JavaScript, and TypeScript without third-party libraries.
+          <Paragraph className={styles.lead}>
+            Built web applications using HTML, CSS, JavaScript, and TypeScript without third-party
+            libraries.
           </Paragraph>
-        </Col>
-      </Row>
+        </header>
 
-      <Row gutter={[24, 24]} className={styles.skillGrid}>
-        {SKILLS.map((skill) => {
-          const Icon = skill.Icon
-          return (
-            <Col key={skill.key} xs={24} md={12} lg={8}>
-              <Card bordered={false} className={`${styles.skillCard} ${THEME_CLASS[skill.themeKey]}`}>
-                <Flex vertical gap="middle">
-                  <Flex justify="space-between" align="flex-start" gap="small">
-                    <div className={styles.skillIconShell}>
-                      <Icon className={styles.skillIcon} aria-hidden />
-                    </div>
-                    <Text className={styles.skillLevel}>{skill.level}</Text>
-                  </Flex>
-                  <Title level={4} className={styles.skillTitle}>
-                    {skill.title}
-                  </Title>
-                  <Paragraph className={styles.skillDesc}>{skill.description}</Paragraph>
-                  <div className={styles.skillMeter}>
-                    <Flex justify="space-between" align="baseline" className={styles.skillMeterHead}>
-                      <Text className={styles.skillProfLabel}>PROFICIENCY</Text>
-                      <Text className={styles.skillPct}>{skill.percent}%</Text>
-                    </Flex>
-                    <Progress
-                      percent={skill.percent}
-                      showInfo={false}
-                      strokeWidth={5}
-                      trailColor="rgba(255, 255, 255, 0.08)"
-                      strokeColor={{
-                        '0%': skill.strokeFrom,
-                        '100%': skill.strokeTo,
-                      }}
-                    />
-                  </div>
-                </Flex>
-              </Card>
-            </Col>
-          )
-        })}
-      </Row>
+        <div className={styles.showcase}>
+          <div className={styles.grid} role="list">
+            {TECH_STACK.map((tech) => (
+              <TechTile key={tech.key} tech={tech} />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
-

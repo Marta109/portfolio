@@ -7,28 +7,35 @@ import {AboutMarkdown} from "@/pages/about-markdown/AboutMarkdown";
 import {AIPlayground} from "@/pages/ai-playground/AIPlayground";
 import {ContactPage} from "@/pages/contact/ContactPage";
 import {ResumePage} from "@/pages/resume/ResumePage";
-import {WorksPage} from "@/pages/works/WorksPage";
+import {ProjectsPage} from "@/pages/projects/ProjectsPage";
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
 
   const themeToken = useMemo(
     () => ({
-      colorPrimary: "#8B5CF6",
-      colorBgLayout: isDark ? "#05070A" : "#f4f6fb",
-      colorBgContainer: isDark ? "rgba(10, 25, 47, 0.85)" : "rgba(255, 255, 255, 0.92)",
-      colorText: isDark ? "rgba(255, 255, 255, 0.92)" : "rgba(15, 23, 42, 0.92)",
-      colorTextSecondary: isDark ? "rgba(255, 255, 255, 0.55)" : "rgba(15, 23, 42, 0.65)",
-      colorBorderSecondary: isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(15, 23, 42, 0.12)",
+      colorPrimary: "#6366f1",
+      colorBgLayout: isDark ? "#070a12" : "#edeaf4",
+      colorBgContainer: isDark ? "rgba(14, 20, 38, 0.92)" : "#ffffff",
+      colorBgElevated: isDark ? "rgba(18, 26, 48, 0.96)" : "#faf9ff",
+      colorText: isDark ? "#f8fafc" : "#1a1f36",
+      colorTextSecondary: isDark ? "#cbd5e1" : "#3d4466",
+      colorTextPlaceholder: isDark ? "rgba(148, 163, 184, 0.75)" : "#7a8299",
+      colorBorder: isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(71, 77, 115, 0.22)",
+      colorBorderSecondary: isDark ? "rgba(255, 255, 255, 0.09)" : "rgba(71, 77, 115, 0.14)",
       fontFamily: `'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
-      borderRadiusLG: 16,
+      borderRadius: 12,
+      borderRadiusLG: 20,
     }),
     [isDark],
   );
 
   useEffect(() => {
+    const mode = isDark ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", mode);
+    document.documentElement.style.colorScheme = mode;
     document.documentElement.style.setProperty("--app-bg", themeToken.colorBgLayout);
-  }, [themeToken.colorBgLayout]);
+  }, [isDark, themeToken.colorBgLayout]);
 
   return (
     <ConfigProvider
@@ -42,7 +49,7 @@ export default function App() {
         <PortfolioLayout isDark={isDark} onToggleTheme={() => setIsDark((v) => !v)}>
           <Routes>
             <Route path="/" element={<AboutPage />} />
-            <Route path="/work" element={<WorksPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/skills" element={<AboutPage scrollToId="skills" />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/resume" element={<ResumePage />} />

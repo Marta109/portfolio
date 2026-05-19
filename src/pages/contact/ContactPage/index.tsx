@@ -1,5 +1,5 @@
 import {useMemo} from "react";
-import {Button, Card, Col, Form, Input, Row, Space, Typography} from "antd";
+import {Button, Card, Col, Form, Input, Row, Typography} from "antd";
 import {
   EnvironmentOutlined,
   GithubOutlined,
@@ -9,7 +9,7 @@ import {
   PhoneOutlined,
   SendOutlined,
 } from "@ant-design/icons";
-import styles from "@/pages/home/HomePage/HomePage.module.css";
+import styles from "./ContactPage.module.css";
 
 type ContactInfoItemProps = {
   icon: React.ReactNode;
@@ -20,20 +20,18 @@ type ContactInfoItemProps = {
 
 function ContactInfoItem({icon, label, value, href}: ContactInfoItemProps) {
   return (
-    <div className={styles.contactInfoItem}>
-      <Space align="start" size={12}>
-        <span className={styles.contactIcon}>{icon}</span>
-        <div>
-          <Typography.Text className={styles.contactLabel}>{label}</Typography.Text>
-          {href ? (
-            <Typography.Link href={href} target="_blank" className={styles.contactValue}>
-              {value}
-            </Typography.Link>
-          ) : (
-            <Typography.Text className={styles.contactValue}>{value}</Typography.Text>
-          )}
-        </div>
-      </Space>
+    <div className={styles.infoItem}>
+      <span className={styles.iconShell}>{icon}</span>
+      <div className={styles.infoContent}>
+        <Typography.Text className={styles.infoLabel}>{label}</Typography.Text>
+        {href ? (
+          <Typography.Link href={href} target="_blank" className={styles.infoValue}>
+            {value}
+          </Typography.Link>
+        ) : (
+          <Typography.Text className={styles.infoValue}>{value}</Typography.Text>
+        )}
+      </div>
     </div>
   );
 }
@@ -90,87 +88,95 @@ export function ContactPage() {
 
   return (
     <div className={styles.root}>
-      <section id="contact" className={styles.contactSection}>
-        <div className={styles.contactContainer}>
-          <div className={styles.contactHeader}>
+      <section id="contact" className={styles.section}>
+        <div className={styles.container}>
+          <header className={styles.header}>
             <Typography.Text className={styles.kicker}>{contactData.title}</Typography.Text>
-            <Typography.Title level={2} className={styles.sectionTitle}>
-              Let's <span className={styles.sectionTitleMastery}>Work Together</span>
+            <Typography.Title level={2} className={styles.pageTitle}>
+              {contactData.heading}
             </Typography.Title>
-            <Typography.Paragraph className={styles.contactLead}>
+            <Typography.Paragraph className={styles.lead}>
               {contactData.description}
             </Typography.Paragraph>
-          </div>
-          <Row gutter={[24, 24]} className={styles.contactGrid}>
-            <Col xs={24} lg={10} className={styles.contactCol}>
-              <Card className={styles.contactCard} bordered={false}>
-                <div className={styles.contactCardInner}>
-                  <Typography.Title level={4} className={styles.contactCardTitle}>
+          </header>
+
+          <Row gutter={[24, 24]} className={styles.grid}>
+            <Col xs={24} lg={10} className={styles.col}>
+              <Card className={styles.card} bordered={false}>
+                <div className={styles.cardInner}>
+                  <Typography.Title level={4} className={styles.cardTitle}>
                     Contact Information
                   </Typography.Title>
-                  <Typography.Paragraph className={styles.contactCardText}>
+                  <Typography.Paragraph className={styles.cardSubtitle}>
                     Front-End Developer
                   </Typography.Paragraph>
-                  <ContactInfoItem
-                    icon={<MailOutlined />}
-                    label="Email"
-                    value={contactData.email}
-                    href={`mailto:${contactData.email}`}
-                  />
-                  <ContactInfoItem
-                    icon={<PhoneOutlined />}
-                    label="Phone"
-                    value={contactData.phone}
-                    href={`tel:${contactData.phone.replace(/\s+/g, "")}`}
-                  />
-                  <ContactInfoItem
-                    icon={<EnvironmentOutlined />}
-                    label="Location"
-                    value={contactData.location}
-                  />
-                  <ContactInfoItem
-                    icon={<SendOutlined />}
-                    label="Availability"
-                    value={contactData.availability}
-                  />
-                  <div className={styles.contactLinks}>
-                    {socialList.map((social) =>
-                      social.href ? (
-                        <Typography.Link
-                          key={social.label}
-                          href={social.href}
-                          target="_blank"
-                          className={styles.contactLink}>
-                          {social.icon} {social.label}
-                        </Typography.Link>
-                      ) : (
-                        <div key={social.label} className={styles.contactLink}>
-                          {social.icon} {social.value}
-                        </div>
-                      ),
-                    )}
+
+                  <div className={styles.infoList}>
+                    <ContactInfoItem
+                      icon={<MailOutlined />}
+                      label="Email"
+                      value={contactData.email}
+                      href={`mailto:${contactData.email}`}
+                    />
+                    <ContactInfoItem
+                      icon={<PhoneOutlined />}
+                      label="Phone"
+                      value={contactData.phone}
+                      href={`tel:${contactData.phone.replace(/\s+/g, "")}`}
+                    />
+                    <ContactInfoItem
+                      icon={<EnvironmentOutlined />}
+                      label="Location"
+                      value={contactData.location}
+                    />
+                    <ContactInfoItem
+                      icon={<SendOutlined />}
+                      label="Availability"
+                      value={contactData.availability}
+                    />
+                  </div>
+
+                  <div className={styles.socialSection}>
+                    <div className={styles.socialLinks}>
+                      {socialList.map((social) =>
+                        social.href ? (
+                          <Typography.Link
+                            key={social.label}
+                            href={social.href}
+                            target="_blank"
+                            className={styles.socialLink}>
+                            {social.icon} {social.label}
+                          </Typography.Link>
+                        ) : (
+                          <div key={social.label} className={styles.socialLink}>
+                            {social.icon} {social.value}
+                          </div>
+                        ),
+                      )}
+                    </div>
                   </div>
                 </div>
               </Card>
             </Col>
-            <Col xs={24} lg={14} className={styles.contactCol}>
-              <Card className={styles.contactCard} bordered={false}>
-                <div className={styles.contactCardInner}>
-                  <Typography.Title level={4} className={styles.contactCardTitle}>
+
+            <Col xs={24} lg={14} className={styles.col}>
+              <Card className={styles.card} bordered={false}>
+                <div className={styles.cardInner}>
+                  <Typography.Title level={4} className={styles.cardTitle}>
                     Send a message
                   </Typography.Title>
-                  <Form layout="vertical" className={styles.contactForm} onFinish={onFinish}>
+                  <Form layout="vertical" className={styles.form} onFinish={onFinish}>
                     <Row gutter={16}>
                       <Col xs={24} sm={12}>
                         <Form.Item
                           name="name"
                           rules={[{required: true, message: "Please enter your name."}]}
-                          className={styles.contactField}>
+                          className={styles.formField}>
                           <Input placeholder="Your Name" size="large" />
                         </Form.Item>
                       </Col>
                       <Col xs={24} sm={12}>
-                        <Form.Item name="company" className={styles.contactField}>
+                        <Form.Item name="company" className={styles.formField}>
                           <Input placeholder="Company" size="large" />
                         </Form.Item>
                       </Col>
@@ -181,23 +187,25 @@ export function ContactPage() {
                         {required: true, message: "Please enter your email."},
                         {type: "email", message: "Enter a valid email."},
                       ]}
-                      className={styles.contactField}>
+                      className={styles.formField}>
                       <Input placeholder="Email" size="large" />
                     </Form.Item>
                     <Form.Item
                       name="message"
                       rules={[{required: true, message: "Please write a message."}]}
-                      className={styles.contactField}>
-                      <Input.TextArea rows={10} placeholder="Tell me about the opportunity..." />
+                      className={styles.formField}>
+                      <Input.TextArea rows={6} placeholder="Tell me about the opportunity..." />
                     </Form.Item>
-                    <Form.Item className={styles.contactButtonItem}>
-                      <Button
-                        type="primary"
-                        htmlType="submit"
-                        className={styles.contactFormButton}
-                        icon={<SendOutlined />}>
-                        Send Message
-                      </Button>
+                    <Form.Item className={styles.submitItem}>
+                      <div className={styles.submitWrap}>
+                        <Button
+                          type="primary"
+                          htmlType="submit"
+                          className={styles.submitBtn}
+                          icon={<SendOutlined />}>
+                          Send Message
+                        </Button>
+                      </div>
                     </Form.Item>
                   </Form>
                 </div>

@@ -6,6 +6,10 @@
 .title {
   margin: 0 !important;
   font-weight: 750 !important;
+  background: linear-gradient(135deg, #b8c1ec 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subtitle {

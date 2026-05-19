@@ -1,0 +1,121 @@
+/* —— Design tokens: dark —— */
+[data-theme="dark"] {
+  --bg-page: #070a12;
+  --bg-page-overlay: none;
+  --bg-header: rgba(7, 10, 18, 0.92);
+  --bg-card: rgba(14, 20, 38, 0.92);
+  --bg-card-hover: rgba(18, 26, 48, 0.96);
+  --bg-input: rgba(255, 255, 255, 0.05);
+  --bg-input-hover: rgba(255, 255, 255, 0.07);
+  --bg-glass: rgba(14, 20, 38, 0.78);
+
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-accent: rgba(139, 92, 246, 0.35);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-placeholder: rgba(148, 163, 184, 0.75);
+  --text-inverse: #0f172a;
+
+  --accent: #8b5cf6;
+  --accent-soft: #a78bfa;
+  --accent-muted: #c4b5fd;
+  --accent-blue: #6366f1;
+  --accent-indigo: #4f46e5;
+  --kicker: #a5b4fc;
+
+  --icon-shell-bg: linear-gradient(145deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.12));
+  --icon-shell-border: rgba(167, 139, 250, 0.28);
+  --icon-shell-color: #c4b5fd;
+  --surface-hover: rgba(255, 255, 255, 0.05);
+  --nav-hover-bg: rgba(99, 102, 241, 0.1);
+  --nav-active-bg: rgba(99, 102, 241, 0.16);
+
+  --gradient-title: linear-gradient(135deg, #e0e7ff 0%, #a5b4fc 45%, #818cf8 100%);
+  --gradient-accent-line: linear-gradient(90deg, #6366f1, #8b5cf6);
+  --gradient-btn: linear-gradient(135deg, #6366f1 0%, #7c3aed 100%);
+  --gradient-btn-hover: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.22);
+  --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.12), 0 16px 40px rgba(0, 0, 0, 0.28);
+  --shadow-hover: 0 12px 36px rgba(99, 102, 241, 0.18);
+  --shadow-btn: 0 6px 20px rgba(99, 102, 241, 0.32);
+  --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  --focus-ring: 0 0 0 3px rgba(99, 102, 241, 0.22);
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --transition-fast: 0.22s ease;
+  --transition-smooth: 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  --theme-transition: 0.35s ease;
+}
+
+/* —— Design tokens: light (premium) —— */
+[data-theme="light"] {
+  --bg-page: #edeaf4;
+  --bg-page-overlay:
+    radial-gradient(ellipse 90% 60% at 10% -10%, rgba(199, 190, 255, 0.35), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 95% 5%, rgba(186, 214, 255, 0.4), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(224, 218, 245, 0.5), transparent 55%);
+  --bg-header: rgba(252, 251, 255, 0.9);
+  --bg-card: #ffffff;
+  --bg-card-hover: #faf9ff;
+  --bg-input: #f6f5fb;
+  --bg-input-hover: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+
+  --border-subtle: rgba(71, 77, 115, 0.14);
+  --border-default: rgba(71, 77, 115, 0.22);
+  --border-strong: rgba(71, 77, 115, 0.3);
+  --border-accent: rgba(99, 102, 241, 0.42);
+
+  --text-primary: #1a1f36;
+  --text-secondary: #3d4466;
+  --text-muted: #5c6478;
+  --text-placeholder: #7a8299;
+  --text-inverse: #ffffff;
+
+  --accent: #5b5bd6;
+  --accent-soft: #6366f1;
+  --accent-muted: #7c75e8;
+  --accent-blue: #4f46e5;
+  --accent-indigo: #4338ca;
+  --kicker: #5b5bd6;
+
+  --icon-shell-bg: linear-gradient(145deg, rgba(99, 102, 241, 0.12), rgba(167, 139, 250, 0.08));
+  --icon-shell-border: rgba(99, 102, 241, 0.28);
+  --icon-shell-color: #5b5bd6;
+  --surface-hover: rgba(99, 102, 241, 0.07);
+  --nav-hover-bg: rgba(99, 102, 241, 0.1);
+  --nav-active-bg: rgba(99, 102, 241, 0.14);
+
+  --gradient-title: linear-gradient(135deg, #312e81 0%, #4f46e5 42%, #6366f1 100%);
+  --gradient-accent-line: linear-gradient(90deg, #4f46e5, #7c3aed);
+  --gradient-btn: linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #7c3aed 100%);
+  --gradient-btn-hover: linear-gradient(135deg, #4338ca 0%, #5b5bd6 55%, #6d28d9 100%);
+
+  --shadow-sm: 0 1px 2px rgba(26, 31, 54, 0.06), 0 4px 12px rgba(71, 77, 115, 0.08);
+  --shadow-card: 0 1px 2px rgba(26, 31, 54, 0.05), 0 8px 24px rgba(71, 77, 115, 0.1),
+    0 0 0 1px rgba(71, 77, 115, 0.06);
+  --shadow-hover: 0 12px 32px rgba(99, 102, 241, 0.16), 0 2px 8px rgba(71, 77, 115, 0.08);
+  --shadow-btn: 0 4px 14px rgba(79, 70, 229, 0.28), 0 2px 4px rgba(71, 77, 115, 0.08);
+  --shadow-inset: inset 0 1px 2px rgba(71, 77, 115, 0.06);
+  --focus-ring: 0 0 0 3px rgba(99, 102, 241, 0.2);
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --transition-fast: 0.22s ease;
+  --transition-smooth: 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  --theme-transition: 0.35s ease;
+}
