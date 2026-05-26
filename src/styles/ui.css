@@ -56,6 +56,45 @@
   background: var(--bg-card-hover) !important;
 }
 
+/* —— Notifications (contact form, etc.) —— */
+[data-theme] .ant-notification {
+  z-index: 1200;
+}
+
+[data-theme] .ant-notification-notice {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border-default) !important;
+  background: var(--bg-card) !important;
+  box-shadow: var(--shadow-card) !important;
+  backdrop-filter: blur(12px);
+}
+
+[data-theme] .ant-notification-notice-message {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme] .ant-notification-notice-description {
+  color: var(--text-secondary) !important;
+  line-height: 1.55 !important;
+}
+
+[data-theme] .ant-notification-notice-close {
+  color: var(--text-muted) !important;
+}
+
+[data-theme] .ant-notification-notice-close:hover {
+  color: var(--text-primary) !important;
+}
+
+[data-theme] .ant-notification-notice-icon-success.anticon {
+  color: #34d399 !important;
+}
+
+[data-theme] .ant-notification-notice-icon-error.anticon {
+  color: #f87171 !important;
+}
+
 /* —— Global Ant Design harmonization —— */
 [data-theme] .ant-btn {
   font-weight: 600;
@@ -172,6 +211,13 @@
   background: var(--bg-input) !important;
   color: var(--text-primary) !important;
   box-shadow: var(--shadow-inset);
+}
+
+[data-theme] .ant-input-textarea,
+[data-theme] .ant-input-textarea-show-count {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 [data-theme] .ant-input::placeholder,

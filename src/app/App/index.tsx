@@ -1,5 +1,5 @@
 import {useEffect, useMemo, useState} from "react";
-import {ConfigProvider, theme} from "antd";
+import {App as AntApp, ConfigProvider, theme} from "antd";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {PortfolioLayout} from "@/layouts/PortfolioLayout";
 import {AboutPage} from "@/pages/about/AboutPage";
@@ -45,20 +45,22 @@ export default function App() {
           ...themeToken,
         },
       }}>
-      <BrowserRouter>
-        <PortfolioLayout isDark={isDark} onToggleTheme={() => setIsDark((v) => !v)}>
-          <Routes>
-            <Route path="/" element={<AboutPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/skills" element={<AboutPage scrollToId="skills" />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/resume" element={<ResumePage />} />
-            <Route path="/about-markdown" element={<AboutMarkdown />} />
-            <Route path="/ai-playground" element={<AIPlayground />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </PortfolioLayout>
-      </BrowserRouter>
+      <AntApp notification={{placement: "top"}}>
+        <BrowserRouter>
+          <PortfolioLayout isDark={isDark} onToggleTheme={() => setIsDark((v) => !v)}>
+            <Routes>
+              <Route path="/" element={<AboutPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/skills" element={<AboutPage scrollToId="skills" />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/resume" element={<ResumePage />} />
+              <Route path="/about-markdown" element={<AboutMarkdown />} />
+              <Route path="/ai-playground" element={<AIPlayground />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </PortfolioLayout>
+        </BrowserRouter>
+      </AntApp>
     </ConfigProvider>
   );
 }

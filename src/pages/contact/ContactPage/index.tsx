@@ -1,5 +1,7 @@
 import {useMemo} from "react";
 import {Button, Card, Col, Form, Input, Row, Typography} from "antd";
+import type {ContactFormValues} from "@/services/emailjs";
+import {useContactFormSubmit} from "./useContactFormSubmit";
 import {
   EnvironmentOutlined,
   GithubOutlined,
@@ -37,6 +39,9 @@ function ContactInfoItem({icon, label, value, href}: ContactInfoItemProps) {
 }
 
 export function ContactPage() {
+  const [form] = Form.useForm<ContactFormValues>();
+  const {onFinish, isSubmitting} = useContactFormSubmit({form});
+
   const contactData = useMemo(
     () => ({
       title: "Get in touch",
@@ -76,16 +81,6 @@ export function ContactPage() {
     },
   ];
 
-  const onFinish = (values: {name: string; company: string; email: string; message: string}) => {
-    const mailto = `mailto:${contactData.email}?subject=${encodeURIComponent(
-      `Portfolio inquiry from ${values.name || "Contact form"}`,
-    )}&body=${encodeURIComponent(
-      `Name: ${values.name}\nCompany: ${values.company}\nEmail: ${values.email}\n\n${values.message}`,
-    )}`;
-
-    window.location.href = mailto;
-  };
-
   return (
     <div className={styles.root}>
       <section id="contact" className={styles.section}>
@@ -100,7 +95,7 @@ export function ContactPage() {
             </Typography.Paragraph>
           </header>
 
-          <Row gutter={[24, 24]} className={styles.grid}>
+          <Row gutter={[{xs: 0, sm: 16, lg: 24}, {xs: 20, sm: 20, lg: 24}]} className={styles.grid}>
             <Col xs={24} lg={10} className={styles.col}>
               <Card className={styles.card} bordered={false}>
                 <div className={styles.cardInner}>
@@ -165,19 +160,41 @@ export function ContactPage() {
                   <Typography.Title level={4} className={styles.cardTitle}>
                     Send a message
                   </Typography.Title>
-                  <Form layout="vertical" className={styles.form} onFinish={onFinish}>
-                    <Row gutter={16}>
+                  <Form
+                    form={form}
+                    layout="vertical"
+                    className={styles.form}
+                    onFinish={onFinish}
+                    disabled={isSubmitting}
+                    requiredMark={false}>
+                    <Row gutter={[{xs: 0, sm: 16}, 0]} className={styles.formRow}>
                       <Col xs={24} sm={12}>
                         <Form.Item
                           name="name"
-                          rules={[{required: true, message: "Please enter your name."}]}
+                          rules={[
+                            {required: true, message: "Please enter your name."},
+                            {max: 120, message: "Name must be 120 characters or fewer."},
+                          ]}
                           className={styles.formField}>
-                          <Input placeholder="Your Name" size="large" />
+                          <Input
+                            className={styles.formControl}
+                            placeholder="Your Name"
+                            size="large"
+                            autoComplete="name"
+                          />
                         </Form.Item>
                       </Col>
                       <Col xs={24} sm={12}>
-                        <Form.Item name="company" className={styles.formField}>
-                          <Input placeholder="Company" size="large" />
+                        <Form.Item
+                          name="company"
+                          rules={[{max: 120, message: "Company must be 120 characters or fewer."}]}
+                          className={styles.formField}>
+                          <Input
+                            className={styles.formControl}
+                            placeholder="Company"
+                            size="large"
+                            autoComplete="organization"
+                          />
                         </Form.Item>
                       </Col>
                     </Row>
@@ -188,13 +205,27 @@ export function ContactPage() {
                         {type: "email", message: "Enter a valid email."},
                       ]}
                       className={styles.formField}>
-                      <Input placeholder="Email" size="large" />
+                      <Input
+                        className={styles.formControl}
+                        placeholder="Email"
+                        size="large"
+                        autoComplete="email"
+                      />
                     </Form.Item>
                     <Form.Item
                       name="message"
-                      rules={[{required: true, message: "Please write a message."}]}
+                      rules={[
+                        {required: true, message: "Please write a message."},
+                        {min: 10, message: "Message must be at least 10 characters."},
+                        {max: 4000, message: "Message must be 4000 characters or fewer."},
+                      ]}
                       className={styles.formField}>
-                      <Input.TextArea rows={6} placeholder="Tell me about the opportunity..." />
+                      <Input.TextArea
+                        className={styles.formControl}
+                        rows={6}
+                        maxLength={4000}
+                        placeholder="Tell me about the opportunity..."
+                      />
                     </Form.Item>
                     <Form.Item className={styles.submitItem}>
                       <div className={styles.submitWrap}>
@@ -202,7 +233,8 @@ export function ContactPage() {
                           type="primary"
                           htmlType="submit"
                           className={styles.submitBtn}
-                          icon={<SendOutlined />}>
+                          icon={<SendOutlined />}
+                          loading={isSubmitting}>
                           Send Message
                         </Button>
                       </div>

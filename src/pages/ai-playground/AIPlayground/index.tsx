@@ -232,7 +232,7 @@ export function AIPlayground() {
               {promptSuggestions.map((suggestion) => (
                 <Button
                   key={suggestion}
-                  type="text"
+                  type="default"
                   className={styles.suggestionChip}
                   onClick={() => setPrompt(suggestion)}>
                   {suggestion}

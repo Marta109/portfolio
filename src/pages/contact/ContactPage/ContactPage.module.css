@@ -1,14 +1,26 @@
 .root {
+  box-sizing: border-box;
   width: 100%;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: clamp(24px, 5vw, 36px) clamp(14px, 4vw, 20px) 48px;
+  max-width: min(1080px, 100%);
+  margin-inline: auto;
+  padding-block: clamp(20px, 5vw, 36px) 48px;
+  padding-inline: clamp(8px, 2.5vw, 20px);
   position: relative;
   min-width: 0;
 }
 
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
 .section {
   position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section::before {
@@ -83,11 +95,21 @@
 
 .grid {
   width: 100%;
+  max-width: 100%;
+  margin-inline: auto !important;
   align-items: stretch;
+  justify-content: center;
+}
+
+.grid > :global(.ant-col) {
+  display: flex;
+  justify-content: center;
 }
 
 .col {
   display: flex;
+  width: 100%;
+  max-width: 100%;
 }
 
 .card {
@@ -164,7 +186,7 @@
   align-items: flex-start;
   gap: 14px;
   padding: 14px 12px;
-  margin: 0 -12px;
+  margin: 0;
   border-radius: 16px;
   border: 1px solid transparent;
   transition:
@@ -250,8 +272,8 @@
   gap: 10px;
   min-height: 48px;
   flex: 1 1 auto;
-  min-width: min(100%, 200px);
-  padding: 12px 18px !important;
+  /* min-width: min(100%, 200px); */
+  /* padding: 12px 18px !important; */
   border-radius: var(--radius-pill);
   font-size: clamp(14px, 3.2vw, 15px) !important;
   font-weight: 600 !important;
@@ -280,37 +302,83 @@
 
 .form {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
-.formField :global(.ant-form-item) {
+.formRow:global(.ant-row) {
+  width: 100%;
+  margin-inline: auto !important;
+}
+
+.formField:global(.ant-form-item) {
+  width: 100%;
   margin-bottom: 18px !important;
 }
 
-.formField :global(.ant-input),
-.formField :global(.ant-input-affix-wrapper) {
+.formField :global(.ant-form-item-row) {
+  width: 100%;
+}
+
+.formField :global(.ant-form-item-control) {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.formField :global(.ant-form-item-control-input),
+.formField :global(.ant-form-item-control-input-content) {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Unified input surface — single border, no nested wrappers */
+.formControl:global(.ant-input) {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 48px;
   padding: 12px 16px !important;
   font-size: 15px !important;
+  line-height: 1.5 !important;
+  border-radius: var(--radius-md) !important;
+  box-sizing: border-box;
+}
+
+.formControl:global(textarea.ant-input) {
+  min-height: 152px;
+  max-height: 280px;
+  padding: 14px 16px !important;
+  line-height: 1.6 !important;
+  resize: vertical;
+  display: block;
+}
+
+/* TextArea wrapper: transparent shell so only the textarea shows a border */
+.formField :global(.ant-input-textarea),
+.formField :global(.ant-input-textarea-show-count) {
+  width: 100% !important;
+  max-width: 100% !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 .formField :global(.ant-input-affix-wrapper) {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 48px;
   padding: 0 16px !important;
+  box-sizing: border-box;
 }
 
 .formField :global(.ant-input-affix-wrapper .ant-input) {
   background: transparent !important;
   box-shadow: none !important;
+  border: none !important;
   padding: 12px 0 !important;
-}
-
-/* Input styling inherited from global ui.css */
-
-.formField :global(textarea.ant-input) {
-  border-radius: 16px !important;
-  min-height: 120px !important;
-  max-height: 200px;
-  resize: vertical;
-  line-height: 1.6 !important;
-  padding: 14px 16px !important;
+  min-height: 46px;
 }
 
 .submitItem {
@@ -341,23 +409,59 @@
 @media (max-width: 992px) {
   .root {
     padding-top: 22px;
+    padding-inline: clamp(4px, 1.5vw, 12px);
+    max-width: 100%;
   }
 
   .header {
     margin-bottom: 28px;
+    padding-inline: clamp(4px, 2vw, 12px);
   }
 
   .card :global(.ant-card-body) {
     padding: 22px !important;
   }
+
+  .grid > :global(.ant-col) {
+    padding-inline: 0 !important;
+  }
+
+  .formRow > :global(.ant-col) {
+    padding-inline: 0 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
+    padding-block: 18px 40px;
+    padding-inline: 0;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .header {
+    padding-inline: 8px;
+  }
+
+  .grid {
+    width: 100%;
+  }
+
+  .socialLinks {
+    justify-content: center;
+  }
+
+  .socialLink {
+    flex: 1 1 calc(50% - 6px);
+    min-width: min(100%, 140px);
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-  .socialLink {
-    flex: 1 1 100%;
-    min-width: 0;
-    width: 100%;
-  }
 
   .infoItem:hover {
     transform: none;

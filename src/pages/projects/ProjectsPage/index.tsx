@@ -74,7 +74,7 @@ export function ProjectsPage() {
                   <Title level={4} className={styles.cardTitle}>
                     {project.title}
                   </Title>
-                  <Flex gap="small" className={styles.actions} wrap="wrap">
+                  <Flex gap="small" className={styles.actions} wrap={false}>
                     <Button
                       type="primary"
                       size="large"
@@ -83,7 +83,7 @@ export function ProjectsPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(event) => event.stopPropagation()}>
-                      Live Demo
+                      <span className={styles.actionBtnLabel}>Live Demo</span>
                     </Button>
                     <Button
                       size="large"
@@ -92,10 +92,10 @@ export function ProjectsPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(event) => event.stopPropagation()}
-                      title="Open on GitHub"
                       icon={<CodeOutlined />}
-                      aria-label="View source code"
-                    />
+                      aria-label="View source code on GitHub">
+                      <span className={styles.actionBtnLabel}>Source Code</span>
+                    </Button>
                   </Flex>
                 </div>
               </Card>

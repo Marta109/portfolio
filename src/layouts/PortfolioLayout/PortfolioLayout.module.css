@@ -11,7 +11,7 @@
 .layout :global(.ant-layout-header) {
   height: auto;
   line-height: unset;
-  padding: 0;
+  padding: 10px;
   background: transparent;
 }
 
@@ -32,6 +32,10 @@
 .headerActions {
   flex-shrink: 0;
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .logo {
@@ -68,6 +72,132 @@
   border-radius: var(--radius-pill);
 }
 
+.mobileMenuButton {
+  display: none;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  padding: 0 !important;
+  border-radius: var(--radius-pill) !important;
+  border: 1px solid var(--border-default) !important;
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.mobileMenuButton:hover {
+  border-color: var(--border-accent) !important;
+  background: var(--bg-card-hover) !important;
+  box-shadow: var(--shadow-hover);
+}
+
+.mobileMenuOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(7, 10, 18, 0.65);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobileMenuOverlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileMenuPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(92vw, 360px);
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 28px 22px 24px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -24px 0 60px rgba(0, 0, 0, 0.28);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.mobileMenuOverlayOpen .mobileMenuPanel {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.mobileMenuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mobileMenuTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary) !important;
+}
+
+.mobileMenuClose {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  padding: 0 !important;
+  border-radius: var(--radius-pill) !important;
+  border: 1px solid var(--border-default) !important;
+  background: var(--bg-card) !important;
+}
+
+.mobileMenuNav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobileMenuItem {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+  text-align: left !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 14px 16px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.mobileMenuItem:hover {
+  color: var(--text-primary) !important;
+  background: var(--nav-hover-bg) !important;
+}
+
+.mobileMenuItemActive {
+  color: var(--accent-soft) !important;
+  background: var(--nav-active-bg) !important;
+}
+
+.mobileMenuFooter {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobileResumeBtn {
+  border-radius: var(--radius-pill) !important;
+  font-weight: 600 !important;
+  min-height: 46px !important;
+  padding-inline: 18px !important;
+}
+
 @media (min-width: 901px) {
   .nav {
     overflow-x: visible;
@@ -90,13 +220,11 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 850px) {
   .headerBar {
     display: grid !important;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "logo actions"
-      "nav nav";
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo actions";
     align-items: center;
     column-gap: 12px;
   }
@@ -106,16 +234,29 @@
   }
 
   .nav {
-    grid-area: nav;
-    width: 100%;
-    justify-content: flex-start;
-    order: unset;
+    display: none;
   }
 
   .headerActions {
     grid-area: actions;
     margin-left: 0;
     justify-self: end;
+  }
+
+  .mobileMenuButton {
+    display: inline-flex;
+  }
+
+  .mobileMenuButton {
+    order: 3;
+  }
+
+  .themeToggle {
+    order: 1;
+  }
+
+  .resumeBtn {
+    order: 2;
   }
 }
 

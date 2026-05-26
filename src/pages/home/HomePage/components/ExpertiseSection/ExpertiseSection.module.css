@@ -83,24 +83,25 @@
 }
 
 .grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
   width: 100%;
   max-width: 880px;
-  grid-template-columns: repeat(auto-fill, minmax(min(100px, 30vw), 1fr));
-  justify-items: center;
-  align-items: stretch;
-  gap: clamp(10px, 2.5vw, 16px);
+  gap: clamp(12px, 2.5vw, 18px);
 }
 
 .tile {
   --accent: #667eea;
   position: relative;
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 11px;
-  width: 100%;
+  width: 112px;
   max-width: 124px;
   min-height: 118px;
   padding: 18px 8px 14px;
@@ -168,7 +169,6 @@
 @media (min-width: 768px) {
   .grid {
     gap: 16px;
-    grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
   }
 
   .tile {
@@ -195,13 +195,13 @@
 
   .grid {
     gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(min(92px, 29vw), 1fr));
   }
 
   .tile {
+    width: clamp(96px, 28vw, 112px);
     max-width: none;
     min-height: 108px;
-    padding: 14px 6px 12px;
+    padding: 14px 10px 14px;
   }
 }
 

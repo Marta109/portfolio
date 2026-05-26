@@ -169,37 +169,44 @@
 .actionBar {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  align-items: stretch;
+  gap: 16px;
   width: 100%;
 }
 
 .actionButtonRow {
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
   width: 100%;
 }
 
 .sendPrimary,
 .clearSecondary {
-  min-height: 48px;
-  padding: 0 22px !important;
-  border-radius: var(--radius-lg) !important;
+  height: auto !important;
+  min-height: 56px;
+  padding: 14px 32px !important;
+  border-radius: var(--radius-xl) !important;
   font-weight: 700 !important;
-  font-size: 15px !important;
+  font-size: 16px !important;
+  letter-spacing: 0.01em;
+  line-height: 1.2 !important;
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  flex: 1 1 140px;
+  flex: 1 1 168px;
+  max-width: 100%;
   transition:
-    transform var(--transition-fast),
+    transform var(--transition-smooth),
     box-shadow var(--transition-fast),
     border-color var(--transition-fast),
     filter var(--transition-fast),
     background var(--transition-fast),
-    color var(--transition-fast) !important;
+    color var(--transition-fast),
+    opacity var(--transition-fast) !important;
 }
 
 .sendPrimary:global(.ant-btn-primary) {
@@ -210,18 +217,29 @@
 }
 
 .sendPrimary:global(.ant-btn-primary):not(:disabled):hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   background: var(--gradient-btn-hover) !important;
   box-shadow: var(--shadow-hover) !important;
   color: var(--text-inverse) !important;
 }
 
 .sendPrimary:global(.ant-btn-primary):not(:disabled):active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.sendPrimary:global(.ant-btn-primary):focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  outline-offset: 3px;
+}
+
+.sendPrimary:global(.ant-btn-primary):disabled {
+  opacity: 0.55;
+  box-shadow: none !important;
 }
 
 .clearSecondary:global(.ant-btn-default) {
-  background: var(--bg-glass) !important;
+  background: var(--bg-card) !important;
   border: 1px solid var(--border-default) !important;
   color: var(--text-primary) !important;
   box-shadow: var(--shadow-sm);
@@ -231,12 +249,23 @@
   border-color: var(--border-accent) !important;
   color: var(--accent-soft) !important;
   background: var(--bg-card-hover) !important;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-hover);
 }
 
 .clearSecondary:global(.ant-btn-default):not(:disabled):active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow-sm);
+}
+
+.clearSecondary:global(.ant-btn-default):focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  outline-offset: 3px;
+}
+
+.clearSecondary:global(.ant-btn-default):disabled {
+  opacity: 0.45;
+  box-shadow: none;
 }
 
 .copyRow {
@@ -263,12 +292,31 @@
 @media (min-width: 560px) {
   .actionButtonRow {
     flex-wrap: nowrap;
+    justify-content: center;
   }
 
   .sendPrimary,
   .clearSecondary {
     flex: 0 1 auto;
-    min-width: 132px;
+    min-width: 148px;
+  }
+
+  .sendPrimary {
+    min-width: 168px;
+    padding-inline: 36px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .actionButtonRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sendPrimary,
+  .clearSecondary {
+    width: 100% !important;
+    flex: 1 1 100%;
   }
 }
 
@@ -299,52 +347,86 @@
 .statusText {
   color: var(--text-muted);
   font-size: clamp(13px, 3vw, 14px);
-  text-align: right;
+  text-align: center;
   width: 100%;
 }
 
 .suggestions {
-  margin-top: 20px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
 }
 
 .suggestionsLabel {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: var(--text-secondary);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
 }
 
 .suggestionList {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  gap: 10px;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.suggestionChip:global(.ant-btn-default) {
+  border-radius: var(--radius-lg) !important;
 }
 
 .suggestionChip {
-  display: inline-flex;
-  align-items: flex-start;
-  white-space: normal;
-  justify-content: flex-start;
-  width: auto;
-  min-width: 180px;
-  padding: 14px 18px !important;
-  border-radius: var(--radius-md) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: auto !important;
+  min-height: 52px;
+  white-space: normal !important;
+  flex: 1 1 min(260px, 100%);
+  min-width: min(100%, 220px);
+  max-width: min(100%, 340px);
+  padding: 14px 20px !important;
+  border-radius: var(--radius-lg) !important;
   border: 1px solid var(--border-subtle) !important;
   background: var(--bg-input) !important;
   color: var(--text-primary) !important;
-  text-align: left;
-  line-height: 1.45;
-  min-height: 52px;
+  text-align: center !important;
+  line-height: 1.5 !important;
+  word-break: break-word;
+  box-shadow: var(--shadow-sm);
   transition:
-    transform var(--transition-fast),
+    transform var(--transition-smooth),
     border-color var(--transition-fast),
-    background var(--transition-fast);
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
-.suggestionChip:hover {
+.suggestionChip > :global(span) {
+  display: block;
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.5;
+}
+
+.suggestionChip:not(:disabled):hover {
   background: rgba(99, 102, 241, 0.08) !important;
   border-color: var(--border-accent) !important;
   transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.suggestionChip:not(:disabled):active {
+  transform: translateY(0);
+}
+
+.suggestionChip:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  outline-offset: 2px;
 }
 
 @media (max-width: 600px) {
@@ -364,7 +446,9 @@
 
   .suggestionChip {
     min-width: 0;
+    max-width: 100%;
     flex: 1 1 100%;
+    padding: 14px 16px !important;
   }
 }
 
@@ -469,6 +553,6 @@
 
 @media (max-width: 900px) {
   .statusText {
-    text-align: left;
+    text-align: center;
   }
 }
